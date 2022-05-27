@@ -51,9 +51,33 @@ export declare const ComputeJobStatus: Readonly<{
   Stopped: number
   Deleted: number
 }>
+/**
+ * Compute submodule of Ocean Protocol.
+ */
 export declare class Compute extends Instantiable {
+  /**
+   * Returns the instance of Compute.
+   * @return {Promise<Assets>}
+   */
   static getInstance(config: InstantiableConfig): Promise<Compute>
+  /**
+   * Gets the compute address for ordering compute assets
+   * @param  {string} did Decentralized identifer of the primary asset (this will determine where compute happens)
+   * @param  {number} serviceIndex If asset has multiple compute services
+   * @return {Promise<String>} Returns compute address
+   */
   getComputeAddress(did: string, serviceIndex?: number): Promise<string>
+  /**
+   * Start the execution of a compute job.
+   * @param  {DDO|string} asset DID Descriptor Object containing all the data related to an asset or a Decentralized identifier.
+   * @param  {string} txId
+   * @param  {string} tokenAddress
+   * @param  {Account} consumerAccount The account of the consumer ordering the service.
+   * @param  {string} algorithmDid The DID of the algorithm asset (of type `algorithm`) to run on the asset.
+   * @param  {MetaData} algorithmMeta Metadata about the algorithm being run if `algorithm` is being used. This is ignored when `algorithmDid` is specified.
+   * @param  {Output} output Define algorithm output publishing. Publishing the result of a compute job is turned off by default.
+   * @return {Promise<ComputeJob>} Returns compute job ID under status.jobId
+   */
   start(
     asset: DDO | string,
     txId: string,
@@ -66,16 +90,42 @@ export declare class Compute extends Instantiable {
     additionalInputs?: ComputeInput[],
     userCustomParameters?: UserCustomParameters
   ): Promise<ComputeJob>
+  /**
+   * Ends a running compute job.
+   * @param  {Account} consumerAccount The account of the consumer ordering the service.
+   * @param  {DDO|string} asset DID Descriptor Object containing all the data related to an asset or a Decentralized identifier.
+   * @param  {string} jobId The ID of the compute job to be stopped
+   * @return {Promise<ComputeJob>} Returns the new status of a job
+   */
   stop(
     consumerAccount: Account,
     asset: DDO | string,
     jobId: string
   ): Promise<ComputeJob>
+  /**
+   * Deletes a compute job and all resources associated with the job. If job is running it will be stopped first.
+   * @param  {Account} consumerAccount The account of the consumer ordering the service.
+   * @param  {DDO|string} asset DID Descriptor Object containing all the data related to an asset or a Decentralized identifier.
+   * @param  {string} jobId The ID of the compute job to be stopped
+   * @param  {DDO} ddo If undefined then the ddo will be fetched by did
+   * @return {Promise<ComputeJob>} Returns the new status of a job
+   */
   delete(
     consumerAccount: Account,
     asset: DDO | string,
     jobId: string
   ): Promise<ComputeJob>
+  /**
+   * Returns information about the status of all compute jobs, or a single compute job.
+   * @param  {Account} consumerAccount The account of the consumer ordering the service.
+   * @param  {string} did Decentralized identifier.
+   * @param  {DDO} ddo If undefined then the ddo will be fetched by did, this is just to optimize network calls
+   * @param  {ServiceCompute} service If undefined then we get the service from the ddo
+   * @param  {string} jobId The Order transaction id
+   * @param  {string} txId The transaction id of ordering the main asset (asset with compute service)
+   * @param  {boolean} sign If the provider request is going to be signed(default) (full status) or not (short status)
+   * @return {Promise<ComputeJob[]>} Returns the status
+   */
   status(
     consumerAccount: Account,
     did?: string,
@@ -84,6 +134,16 @@ export declare class Compute extends Instantiable {
     jobId?: string,
     txId?: string
   ): Promise<ComputeJob[]>
+  /**
+   * Downloads compute job result
+   * @param  {Account} consumerAccount The account of the consumer ordering the service.
+   * @param  {string} jobId JobId
+   * @param  {number} index Compute Result index
+   * @param  {string} destination: destination folder
+   * @param  {string} did Decentralized identifier.
+   * @param  {DDO} ddo If undefined then the ddo will be fetched by did, this is just to optimize network calls
+   * @param  {ServiceCompute} service If undefined then we get the service from the ddo
+   */
   getResult(
     consumerAccount: Account,
     jobId: string,
@@ -124,6 +184,16 @@ export declare class Compute extends Instantiable {
       supportedContainers: Container[]
     }
   }
+  /**
+   * Creates a compute service
+   * @param {Account} consumerAccount
+   * @param {String} cost  number of datatokens needed for this service, expressed in wei
+   * @param {String} datePublished
+   * @param {Object} providerAttributes
+   * @param {Object} computePrivacy
+   * @param {Number} timeout
+   * @return {Promise<string>} service
+   */
   createComputeService(
     consumerAccount: Account,
     cost: string,
@@ -134,13 +204,45 @@ export declare class Compute extends Instantiable {
     providerUri?: string,
     requiredCustomParameters?: ServiceCustomParametersRequired
   ): ServiceCompute
+  /**
+   * Check the output object and add default properties if needed
+   * @param  {Account} consumerAccount The account of the consumer ordering the service.
+   * @param  {Output} output Output section used for publishing the result.
+   * @return {Promise<Output>} Returns output object
+   */
   private checkOutput
+  /**
+   * Checks if an asset is orderable with a specific algorithm
+   * @param  {DDO|string} dataset DID Descriptor Object containing all the data related to an asset or a Decentralized identifier of the asset (of type `dataset`) to run the algorithm on.
+   * @param  {string} serviceIndex The Service index
+   * @param  {ComputeAlgorithm} algorithm
+   * @param  {DDO} algorithmDDO Algorithm DDO object. If undefined then the ddo will be fetched by did
+   * @return {Promise<boolean>} True is you can order this
+   *
+   * Note:  algorithmDid and algorithmMeta are optional, but if they are not passed,
+   * you can end up in the situation that you are ordering and paying for your compute job,
+   * but provider will not allow the compute, due to privacy settings of the ddo
+   */
   isOrderable(
     dataset: DDO | string,
     serviceIndex: number,
     algorithm: ComputeAlgorithm,
     algorithmDDO?: DDO
   ): Promise<boolean>
+  /**
+   * Starts an order of a compute or access service for a compute job
+   * @param  {String} consumerAccount The account of the consumer ordering the service.
+   * @param  {DDO|string} dataset DID Descriptor Object containing all the data related to an asset or a Decentralized identifier of the asset (of type `dataset`) to run the algorithm on.
+   * @param  {string} serviceIndex The Service index
+   * @param  {string} algorithmDid The DID of the algorithm asset (of type `algorithm`) to run on the asset.
+   * @param  {string} algorithmServiceIndex The index of the service in the algorithm
+   * @param  {MetaData} algorithmMeta Metadata about the algorithm being run if `algorithm` is being used. This is ignored when `algorithmDid` is specified.
+   * @return {SubscribablePromise<OrderProgressStep, string>} Returns the transaction details
+   *
+   * Note:  algorithmDid and algorithmMeta are optional, but if they are not passed,
+   * you can end up in the situation that you are ordering and paying for your compute job,
+   * but provider will not allow the compute, due to privacy settings of the ddo
+   */
   orderAsset(
     consumerAccount: string,
     dataset: DDO | string,
@@ -152,6 +254,16 @@ export declare class Compute extends Instantiable {
     authService?: string,
     searchPreviousOrders?: boolean
   ): SubscribablePromise<OrderProgressStep, string>
+  /**
+   * Orders & pays for a algorithm
+   * @param  {DDO|string} asset DID Descriptor Object containing all the data related to an asset or a Decentralized identifier.
+   * @param {String} serviceType
+   * @param {String} payerAddress
+   * @param {Number} serviceIndex
+   * @param {String} mpAddress Marketplace fee collector address
+   * @param {String} consumerAddress Optionally, if the consumer is another address than payer
+   * @return {Promise<String>} transactionHash of the payment
+   */
   orderAlgorithm(
     asset: DDO | string,
     serviceType: string,
@@ -163,30 +275,72 @@ export declare class Compute extends Instantiable {
     authService?: string,
     searchPreviousOrders?: boolean
   ): Promise<string>
+  /**
+   * Edit Compute Privacy
+   * @param  {ddo} DDO
+   * @param  {number} serviceIndex Index of the compute service in the DDO. If -1, will try to find it
+   * @param  {ServiceComputePrivacy} computePrivacy ComputePrivacy fields & new values.
+   * @param  {Account} account Ethereum account of owner to sign and prove the ownership.
+   * @return {Promise<DDO>}
+   */
   editComputePrivacy(
     ddo: DDO,
     serviceIndex: number,
     computePrivacy: ServiceComputePrivacy
   ): Promise<DDO>
+  /**
+   * Toogle allowAllPublishedAlgorithms
+   * @param  {ddo} DDO
+   * @param  {number} serviceIndex Index of the compute service in the DDO. If -1, will try to find it
+   * @param  {boolean} newState
+   * @return {Promise<DDDO>} Returns the new DDO
+   */
   toggleAllowAllPublishedAlgorithms(
     ddo: DDO,
     serviceIndex: number,
     newState: boolean
   ): Promise<DDO>
+  /**
+   * Generates a publisherTrustedAlgorithm object from a algorithm did
+   * @param  {did} string DID. You can leave this empty if you already have the DDO
+   * @param  {ddo} DDO if empty, will trigger a retrieve
+   * @return {Promise<publisherTrustedAlgorithm>}
+   */
   createPublisherTrustedAlgorithmfromDID(
     did: string,
     ddo?: DDO
   ): Promise<publisherTrustedAlgorithm>
+  /**
+   * Adds a trusted algorithm to an asset
+   * @param  {ddo} DDO
+   * @param  {number} serviceIndex Index of the compute service in the DDO. If -1, will try to find it
+   * @param  {algoDid} string Algorithm DID to be added
+   * @return {Promise<DDDO>} Returns the new DDO
+   */
   addTrustedAlgorithmtoAsset(
     ddo: DDO,
     serviceIndex: number,
     algoDid: string
   ): Promise<DDO>
+  /**
+   * Check is an algo is trusted
+   * @param  {ddo} DDO
+   * @param  {number} serviceIndex Index of the compute service in the DDO. If -1, will try to find it
+   * @param  {algoDid} string Algorithm DID to be added
+   * @return {Promise<DDDO>} Returns the new DDO
+   */
   isAlgorithmTrusted(
     ddo: DDO,
     serviceIndex: number,
     algoDid: string
   ): Promise<boolean>
+  /**
+   * Removes a trusted algorithm from an asset
+   * @param  {ddo} DDO
+   * @param  {number} serviceIndex Index of the compute service in the DDO. If -1, will try to find it
+   * @param  {algoDid} string Algorithm DID to be removed
+   * @return {Promise<DDDO>} Returns the new DDO
+   */
   removeTrustedAlgorithmFromAsset(
     ddo: DDO,
     serviceIndex: number,

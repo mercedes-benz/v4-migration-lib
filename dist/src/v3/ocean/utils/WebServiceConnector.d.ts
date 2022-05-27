@@ -1,5 +1,8 @@
 import { Response } from 'node-fetch'
 import { Logger } from '../../utils'
+/**
+ * Provides a common interface to web services.
+ */
 export declare class WebServiceConnector {
   logger: Logger
   requestTimeout: number

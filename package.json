@@ -10,7 +10,9 @@
   "unpkg": "./dist/index.cjs2.min.js",
   "scripts": {
     "start": "node dist/app.js",
-    "build": "npm run clean && tsc --sourcemap && microbundle build --format umd,cjs,es --compress --target node --tsconfig tsconfig.json",
+    "build": "npm run clean && microbundle build --format umd,cjs,es --compress --tsconfig tsconfig.json",
+    "build-new": "npm run clean && microbundle build --format modern,esm,cjs,umd --compress --tsconfig tsconfig.json",
+    "build-old": "npm run clean && tsc --sourcemap && microbundle build --format umd,cjs,es --compress --target node --tsconfig tsconfig.json",
     "lint": "eslint --ignore-path .gitignore --ext .js --ext .ts --ext .tsx . && npm run type-check",
     "type-check": "tsc --noEmit",
     "format": "prettier --ignore-path .gitignore './**/*.{css,yml,js,ts,tsx,json}' --write",
