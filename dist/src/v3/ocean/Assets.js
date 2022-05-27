@@ -1088,6 +1088,7 @@ var Assets = (function (_super) {
             return [3, 6]
           case 5:
             e_3 = _a.sent()
+            console.error(e_3)
             return [3, 6]
           case 6:
             i++

@@ -32,8 +32,8 @@ export interface MetadataProof {
   v?: number
 }
 export interface ValidateMetadata {
-  valid: Boolean
-  errors?: Object
+  valid: boolean
+  errors?: any
   hash?: string
   proof?: MetadataProof
 }

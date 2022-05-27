@@ -127,7 +127,7 @@ export abstract class ContractBase extends Instantiable {
     }
   }
 
-  protected async call<T extends any>(
+  protected async call<T>(
     name: string,
     args: any[],
     from?: string

@@ -282,7 +282,7 @@ export class OceanDispenser {
   public async dispense(
     dataToken: string,
     address: string,
-    amount: string = '1'
+    amount = '1'
   ): Promise<TransactionReceipt> {
     let estGas
     const gasLimitDefault = this.GASLIMIT_DEFAULT
@@ -353,8 +353,8 @@ export class OceanDispenser {
   public async isDispensable(
     dataToken: string,
     address: string,
-    amount: string = '1'
-  ): Promise<Boolean> {
+    amount = '1'
+  ): Promise<boolean> {
     const status = await this.status(dataToken)
     if (!status) return false
     // check active

@@ -363,7 +363,7 @@ export class Assets extends Instantiable {
   public async publishDdo(
     ddo: DDO,
     consumerAccount: string,
-    encrypt: boolean = false
+    encrypt = false
   ): Promise<TransactionReceipt> {
     return await this.ocean.onChainMetadata.publish(
       ddo.id,
@@ -486,7 +486,7 @@ export class Assets extends Instantiable {
     creator: Account,
     cost: string,
     datePublished: string,
-    timeout: number = 0,
+    timeout = 0,
     providerUri?: string,
     requiredParameters?: ServiceCustomParametersRequired
   ): Promise<ServiceAccess> {
@@ -528,7 +528,7 @@ export class Assets extends Instantiable {
     asset: DDO | string,
     serviceType: string,
     consumerAddress: string,
-    serviceIndex: number = -1,
+    serviceIndex = -1,
     serviceEndpoint: string,
     userCustomParameters?: UserCustomParameters
   ): Promise<any> {
@@ -561,7 +561,7 @@ export class Assets extends Instantiable {
     asset: DDO | string,
     serviceType: string,
     payerAddress: string,
-    serviceIndex: number = -1,
+    serviceIndex = -1,
     mpAddress?: string,
     consumerAddress?: string,
     userCustomParameters?: UserCustomParameters,
@@ -775,7 +775,9 @@ export class Assets extends Instantiable {
         order.serviceType = service.type
         if (!serviceType || (serviceType && serviceType === service.type))
           results.push(order)
-      } catch (e) {}
+      } catch (e) {
+        console.error(e)
+      }
     }
     return results
   }

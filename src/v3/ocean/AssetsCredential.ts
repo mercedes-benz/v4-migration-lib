@@ -81,6 +81,49 @@ export function removeCredentialDetail(
 }
 
 /**
+ * Adds values to credentials of a certain type for a specific action
+ * @param  {ddo} DDO
+ * @param {credentialType} string e.g. address / credential3Box
+ * @param {list} string[] list of values
+ * @param {credentialAction} CredentialAction allow or deny
+ * @return {DDO}
+ */
+
+export function addCredentialDetail(
+  ddo: DDO,
+  credentialType: string,
+  list: string[],
+  credentialAction: CredentialAction
+) {
+  const newCredentialDetail: Credential = {
+    type: credentialType,
+    values: list
+  }
+  if (credentialAction === 'allow') {
+    if (ddo.credentials && ddo.credentials.allow) {
+      ddo.credentials.allow.push(newCredentialDetail)
+    } else {
+      const newCredentials: Credentials = {
+        allow: [newCredentialDetail],
+        deny: ddo.credentials && ddo.credentials.deny
+      }
+      ddo.credentials = newCredentials
+    }
+  } else {
+    if (ddo.credentials && ddo.credentials.deny) {
+      ddo.credentials.deny.push(newCredentialDetail)
+    } else {
+      const newCredential: Credentials = {
+        allow: ddo.credentials && ddo.credentials.allow,
+        deny: [newCredentialDetail]
+      }
+      ddo.credentials = newCredential
+    }
+  }
+  return ddo
+}
+
+/**
  * Updates credentials of a certain type for a specific action
  * @param  {ddo} DDO
  * @param {credentialType} string e.g. address / credential3Box
@@ -119,49 +162,6 @@ export function updateCredentialDetail(
       })
     } else {
       ddo = addCredentialDetail(ddo, credentialType, list, credentialAction)
-    }
-  }
-  return ddo
-}
-
-/**
- * Adds values to credentials of a certain type for a specific action
- * @param  {ddo} DDO
- * @param {credentialType} string e.g. address / credential3Box
- * @param {list} string[] list of values
- * @param {credentialAction} CredentialAction allow or deny
- * @return {DDO}
- */
-
-export function addCredentialDetail(
-  ddo: DDO,
-  credentialType: string,
-  list: string[],
-  credentialAction: CredentialAction
-) {
-  const newCredentialDetail: Credential = {
-    type: credentialType,
-    values: list
-  }
-  if (credentialAction === 'allow') {
-    if (ddo.credentials && ddo.credentials.allow) {
-      ddo.credentials.allow.push(newCredentialDetail)
-    } else {
-      const newCredentials: Credentials = {
-        allow: [newCredentialDetail],
-        deny: ddo.credentials && ddo.credentials.deny
-      }
-      ddo.credentials = newCredentials
-    }
-  } else {
-    if (ddo.credentials && ddo.credentials.deny) {
-      ddo.credentials.deny.push(newCredentialDetail)
-    } else {
-      const newCredential: Credentials = {
-        allow: ddo.credentials && ddo.credentials.allow,
-        deny: [newCredentialDetail]
-      }
-      ddo.credentials = newCredential
     }
   }
   return ddo

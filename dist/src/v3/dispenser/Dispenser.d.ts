@@ -66,5 +66,5 @@ export declare class OceanDispenser {
     dataToken: string,
     address: string,
     amount?: string
-  ): Promise<Boolean>
+  ): Promise<boolean>
 }

@@ -1,16 +1,5 @@
 import { LoggerInstance } from './Logger'
 
-export const zeroX = (input: string): string => zeroXTransformer(input, true)
-export const noZeroX = (input: string): string => zeroXTransformer(input, false)
-export function zeroXTransformer(input = '', zeroOutput: boolean): string {
-  const { valid, output } = inputMatch(
-    input,
-    /^(?:0x)*([a-f0-9]+)$/i,
-    'zeroXTransformer'
-  )
-  return (zeroOutput && valid ? '0x' : '') + output
-}
-
 // Shared functions
 function inputMatch(
   input: string,
@@ -31,3 +20,14 @@ function inputMatch(
   }
   return { valid: true, output: match[1] }
 }
+
+export function zeroXTransformer(input = '', zeroOutput: boolean): string {
+  const { valid, output } = inputMatch(
+    input,
+    /^(?:0x)*([a-f0-9]+)$/i,
+    'zeroXTransformer'
+  )
+  return (zeroOutput && valid ? '0x' : '') + output
+}
+export const zeroX = (input: string): string => zeroXTransformer(input, true)
+export const noZeroX = (input: string): string => zeroXTransformer(input, false)

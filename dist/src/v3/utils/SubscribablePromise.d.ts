@@ -1,5 +1,5 @@
 import { SubscribableObserver } from './SubscribableObserver'
-export declare class SubscribablePromise<T extends any, P extends any> {
+export declare class SubscribablePromise<T, P> {
   private observer
   private promise
   constructor(

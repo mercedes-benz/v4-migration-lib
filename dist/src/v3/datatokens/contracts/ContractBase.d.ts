@@ -32,11 +32,7 @@ export declare abstract class ContractBase extends Instantiable {
     from: string,
     args: any[]
   ): Promise<TransactionReceipt>
-  protected call<T extends any>(
-    name: string,
-    args: any[],
-    from?: string
-  ): Promise<T>
+  protected call<T>(name: string, args: any[], from?: string): Promise<T>
   private searchMethod
 }
 export default ContractBase

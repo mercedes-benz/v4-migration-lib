@@ -10,13 +10,13 @@ export declare function removeCredentialDetail(
   credentialType: string,
   credentialAction: CredentialAction
 ): DDO
-export declare function updateCredentialDetail(
+export declare function addCredentialDetail(
   ddo: DDO,
   credentialType: string,
   list: string[],
   credentialAction: CredentialAction
 ): DDO
-export declare function addCredentialDetail(
+export declare function updateCredentialDetail(
   ddo: DDO,
   credentialType: string,
   list: string[],

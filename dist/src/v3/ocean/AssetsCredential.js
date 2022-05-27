@@ -1,7 +1,7 @@
 'use strict'
 Object.defineProperty(exports, '__esModule', { value: true })
-exports.addCredentialDetail =
-  exports.updateCredentialDetail =
+exports.updateCredentialDetail =
+  exports.addCredentialDetail =
   exports.removeCredentialDetail =
   exports.checkCredentialExist =
     void 0
@@ -60,6 +60,35 @@ function removeCredentialDetail(ddo, credentialType, credentialAction) {
   return ddo
 }
 exports.removeCredentialDetail = removeCredentialDetail
+function addCredentialDetail(ddo, credentialType, list, credentialAction) {
+  var newCredentialDetail = {
+    type: credentialType,
+    values: list
+  }
+  if (credentialAction === 'allow') {
+    if (ddo.credentials && ddo.credentials.allow) {
+      ddo.credentials.allow.push(newCredentialDetail)
+    } else {
+      var newCredentials = {
+        allow: [newCredentialDetail],
+        deny: ddo.credentials && ddo.credentials.deny
+      }
+      ddo.credentials = newCredentials
+    }
+  } else {
+    if (ddo.credentials && ddo.credentials.deny) {
+      ddo.credentials.deny.push(newCredentialDetail)
+    } else {
+      var newCredential = {
+        allow: ddo.credentials && ddo.credentials.allow,
+        deny: [newCredentialDetail]
+      }
+      ddo.credentials = newCredential
+    }
+  }
+  return ddo
+}
+exports.addCredentialDetail = addCredentialDetail
 function updateCredentialDetail(ddo, credentialType, list, credentialAction) {
   var exists = checkCredentialExist(
     ddo.credentials,
@@ -90,33 +119,4 @@ function updateCredentialDetail(ddo, credentialType, list, credentialAction) {
   return ddo
 }
 exports.updateCredentialDetail = updateCredentialDetail
-function addCredentialDetail(ddo, credentialType, list, credentialAction) {
-  var newCredentialDetail = {
-    type: credentialType,
-    values: list
-  }
-  if (credentialAction === 'allow') {
-    if (ddo.credentials && ddo.credentials.allow) {
-      ddo.credentials.allow.push(newCredentialDetail)
-    } else {
-      var newCredentials = {
-        allow: [newCredentialDetail],
-        deny: ddo.credentials && ddo.credentials.deny
-      }
-      ddo.credentials = newCredentials
-    }
-  } else {
-    if (ddo.credentials && ddo.credentials.deny) {
-      ddo.credentials.deny.push(newCredentialDetail)
-    } else {
-      var newCredential = {
-        allow: ddo.credentials && ddo.credentials.allow,
-        deny: [newCredentialDetail]
-      }
-      ddo.credentials = newCredential
-    }
-  }
-  return ddo
-}
-exports.addCredentialDetail = addCredentialDetail
 //# sourceMappingURL=AssetsCredential.js.map

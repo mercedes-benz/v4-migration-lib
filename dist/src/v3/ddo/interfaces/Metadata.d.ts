@@ -10,6 +10,6 @@ export interface Metadata {
   status?: Status
 }
 export interface ValidateMetadata {
-  valid: Boolean
-  errors?: Object
+  valid: boolean
+  errors?: any
 }
