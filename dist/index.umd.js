@@ -2,9 +2,6 @@
   'object' == typeof exports && 'undefined' != typeof module
     ? e(
         exports,
-        require('assert'),
-        require('os'),
-        require('stream'),
         require('uuid'),
         require('decimal.js'),
         require('web3'),
@@ -12,6 +9,8 @@
         require('save-file'),
         require('node-abort-controller'),
         require('cross-fetch'),
+        require('assert'),
+        require('stream'),
         require('@oceanprotocol/contracts/artifacts/Metadata.json'),
         require('lzma/src/lzma-c'),
         require('@oceanprotocol/contracts/artifacts/DTFactory.json'),
@@ -22,6 +21,7 @@
         require('@oceanprotocol/contracts/artifacts/BFactory.json'),
         require('@oceanprotocol/contracts/artifacts/FixedRateExchange.json'),
         require('@oceanprotocol/contracts/artifacts/Dispenser.json'),
+        require('os'),
         require('@oceanprotocol/contracts/artifacts/address.json'),
         require('axios'),
         require('crypto-js/sha256')
@@ -30,9 +30,6 @@
     ? define(
         [
           'exports',
-          'assert',
-          'os',
-          'stream',
           'uuid',
           'decimal.js',
           'web3',
@@ -40,6 +37,8 @@
           'save-file',
           'node-abort-controller',
           'cross-fetch',
+          'assert',
+          'stream',
           '@oceanprotocol/contracts/artifacts/Metadata.json',
           'lzma/src/lzma-c',
           '@oceanprotocol/contracts/artifacts/DTFactory.json',
@@ -50,6 +49,7 @@
           '@oceanprotocol/contracts/artifacts/BFactory.json',
           '@oceanprotocol/contracts/artifacts/FixedRateExchange.json',
           '@oceanprotocol/contracts/artifacts/Dispenser.json',
+          'os',
           '@oceanprotocol/contracts/artifacts/address.json',
           'axios',
           'crypto-js/sha256'
@@ -58,9 +58,6 @@
       )
     : e(
         ((t || self).v4MigrationLib = {}),
-        t.assert,
-        t.os,
-        t.stream,
         0,
         t.Decimal,
         t.web3,
@@ -68,6 +65,8 @@
         t.saveFile,
         t.nodeAbortController,
         t.crossFetch,
+        t.require$$0$2,
+        t.require$$1,
         t.defaultDDOContractABI,
         t.lzmaC,
         t.defaultFactoryABI,
@@ -78,6 +77,7 @@
         t.jsonFactoryABI,
         t.defaultFixedRateExchangeABI,
         t.defaultDispenserABI,
+        t.os,
         t.DefaultContractsAddresses,
         t.axios,
         t.sha256$2
@@ -114,21 +114,21 @@
       return t && 'object' == typeof t && 'default' in t ? t : { default: t }
     }
     var S,
-      T = /*#__PURE__*/ A(e),
+      T = /*#__PURE__*/ A(r),
       E = /*#__PURE__*/ A(n),
-      x = /*#__PURE__*/ A(o),
-      k = /*#__PURE__*/ A(s),
-      R = /*#__PURE__*/ A(a),
-      I = /*#__PURE__*/ A(u),
-      B = /*#__PURE__*/ A(h),
-      O = /*#__PURE__*/ A(f),
-      C = /*#__PURE__*/ A(l),
-      j = /*#__PURE__*/ A(d),
-      L = /*#__PURE__*/ A(p),
-      N = /*#__PURE__*/ A(g),
-      D = /*#__PURE__*/ A(y),
-      U = /*#__PURE__*/ A(b),
-      F = /*#__PURE__*/ A(w),
+      x = /*#__PURE__*/ A(i),
+      k = /*#__PURE__*/ A(o),
+      R = /*#__PURE__*/ A(s),
+      I = /*#__PURE__*/ A(a),
+      B = /*#__PURE__*/ A(u),
+      O = /*#__PURE__*/ A(h),
+      C = /*#__PURE__*/ A(f),
+      j = /*#__PURE__*/ A(c),
+      L = /*#__PURE__*/ A(d),
+      N = /*#__PURE__*/ A(v),
+      D = /*#__PURE__*/ A(g),
+      U = /*#__PURE__*/ A(y),
+      F = /*#__PURE__*/ A(b),
       q = /*#__PURE__*/ A(M),
       z = /*#__PURE__*/ A(_),
       W = /*#__PURE__*/ A(P)
@@ -2191,7 +2191,7 @@
                     return Promise.resolve(
                       o.methods.balanceOf(e.id).call()
                     ).then(function (t) {
-                      n = new x.default(t).div(Math.pow(10, i)).toString()
+                      n = new T.default(t).div(Math.pow(10, i)).toString()
                     })
                   },
                   function (t) {
@@ -2351,10 +2351,10 @@
           (t.getWeb3 = function (t) {
             return (
               void 0 === t && (t = {}),
-              new k.default(
+              new E.default(
                 t.web3Provider ||
-                  k.default.givenProvider ||
-                  new k.default.providers.HttpProvider(t.nodeUri)
+                  E.default.givenProvider ||
+                  new E.default.providers.HttpProvider(t.nodeUri)
               )
             )
           }),
@@ -2456,7 +2456,7 @@
       if (!Number.isInteger(t))
         throw new TypeError('Expected an integer, got ' + typeof t)
       var e = new WeakMap(),
-        r = new B.default(),
+        r = new R.default(),
         n = setTimeout(function () {
           r.abort()
         }, t)
@@ -2555,8 +2555,8 @@
                 ? Promise.resolve(
                     new Promise(function (t, r) {
                       try {
-                        R.default.mkdirSync(e, { recursive: !0 })
-                        var o = R.default.createWriteStream('' + e + i)
+                        x.default.mkdirSync(e, { recursive: !0 })
+                        var o = x.default.createWriteStream('' + e + i)
                         return (
                           n.body.pipe(o),
                           n.body.on('error', r),
@@ -2571,7 +2571,7 @@
                     return e
                   })
                 : Promise.resolve(n.arrayBuffer()).then(function (t) {
-                    I.default(t, i)
+                    k.default(t, i)
                   })
             })
           } catch (t) {
@@ -2589,7 +2589,7 @@
         (e.fetch = function (t, e) {
           try {
             var r = this
-            return Promise.resolve(O.default(t, e)).then(function (n) {
+            return Promise.resolve(I.default(t, e)).then(function (n) {
               var i = (function () {
                 if (!n.ok) {
                   r.logger.error('Error requesting [' + e.method + '] ' + t)
@@ -3374,7 +3374,7 @@
                     Tt(
                       function () {
                         return Promise.resolve(
-                          O.default(s, {
+                          I.default(s, {
                             method: 'GET',
                             headers: { 'Content-Type': 'application/json' }
                           })
@@ -25083,7 +25083,7 @@
           (e.sha512 = Vu)
       }),
       th = ii.Buffer,
-      eh = E.default.Transform,
+      eh = O.default.Transform,
       rh = Ho.StringDecoder
     function nh(t) {
       eh.call(this),
@@ -25344,7 +25344,7 @@
             e.isValidAddress =
             e.Account =
               void 0)
-        var i = n(T.default),
+        var i = n(B.default),
           o = (function () {
             function t(t, e, r, n) {
               void 0 === t && (t = new te.BN(0)),
@@ -25534,7 +25534,7 @@
           }
         Object.defineProperty(e, '__esModule', { value: !0 }),
           (e.Address = void 0)
-        var n = r(T.default),
+        var n = r(B.default),
           i = (function () {
             function t(t) {
               ;(0, n.default)(20 === t.length, 'Invalid address length'),
@@ -25739,7 +25739,7 @@
           }
         Object.defineProperty(e, '__esModule', { value: !0 }),
           (e.defineProperties = void 0)
-        var n = r(T.default)
+        var n = r(B.default)
         e.defineProperties = function (t, e, r) {
           if (
             ((t.raw = []),
@@ -28814,7 +28814,7 @@
                   var s = cf(
                     function () {
                       return Promise.resolve(
-                        f.fetch(n.getURI() + '/api/v1/aquarius/assets/ddo/' + t)
+                        a.fetch(n.getURI() + '/api/v1/aquarius/assets/ddo/' + t)
                       ).then(function (t) {
                         var n = (function () {
                           if (t.ok) {
@@ -28898,8 +28898,8 @@
       return (
         (e.compressDDO = function (t) {
           try {
-            c.LZMA.disableEndMark = !0
-            var e = c.LZMA.compress(t, 9)
+            l.LZMA.disableEndMark = !0
+            var e = l.LZMA.compress(t, 9)
             return Promise.resolve(e)
           } catch (t) {
             return Promise.reject(t)
@@ -29361,7 +29361,7 @@
                   i.config
                 )
               return Promise.resolve(i.getCap(t)).then(function (t) {
-                if (new x.default(t).gte(r)) {
+                if (new T.default(t).gte(r)) {
                   var s,
                     a = function () {
                       var t = o.methods.mint(n || e, i.web3.utils.toWei(r)),
@@ -29872,7 +29872,7 @@
             try {
               return Promise.resolve(
                 this.web3.eth.net.getId().then(function (t) {
-                  var e = m.lookup(t)
+                  var e = p.lookup(t)
                   return e && e.name ? e.name : 'Development'
                 })
               )
@@ -30654,12 +30654,12 @@
                   i.attributes.main.files
                   ? {
                       did: t,
-                      containerSectionChecksum: v
+                      containerSectionChecksum: m
                         .SHA256(
                           JSON.stringify(i.attributes.main.algorithm.container)
                         )
                         .toString(),
-                      filesChecksum: v
+                      filesChecksum: m
                         .SHA256(
                           i.attributes.encryptedFiles +
                             JSON.stringify(i.attributes.main.files)
@@ -31121,7 +31121,7 @@
                     t
                   ) {
                     if (
-                      new x.default(a.web3.utils.toWei(t)).greaterThanOrEqualTo(
+                      new T.default(a.web3.utils.toWei(t)).greaterThanOrEqualTo(
                         n
                       )
                     )
@@ -32397,7 +32397,7 @@
             var a = this,
               u = dt(new a.web3.eth.Contract(a.poolABI, t), a.config),
               h = null
-            if (new x.default(o).gte(n)) return Promise.resolve(null)
+            if (new T.default(o).gte(n)) return Promise.resolve(null)
             var f = Cf(
               function () {
                 return Promise.resolve(
@@ -32906,7 +32906,7 @@
             return Promise.resolve(
               t.prototype.getReserve.call(this, e, r)
             ).then(function (t) {
-              return new x.default(t).div(3).toString()
+              return new T.default(t).div(3).toString()
             })
           } catch (t) {
             return Promise.reject(t)
@@ -33156,11 +33156,11 @@
                         return Promise.resolve(r.getOceanReserve(t)).then(
                           function (t) {
                             return {
-                              dtAmount: new x.default(e)
+                              dtAmount: new T.default(e)
                                 .div(n)
                                 .mul(i)
                                 .toString(),
-                              oceanAmount: new x.default(e)
+                              oceanAmount: new T.default(e)
                                 .div(n)
                                 .mul(t)
                                 .toString()
@@ -33207,7 +33207,7 @@
               t.prototype.getReserve.call(this, e, r)
             ).then(function (t) {
               return parseFloat(t) > 0
-                ? new x.default(t).mul(0.25).toString()
+                ? new T.default(t).mul(0.25).toString()
                 : '0'
             })
           } catch (t) {
@@ -33220,7 +33220,7 @@
               t.prototype.getReserve.call(this, e, r)
             ).then(function (t) {
               return parseFloat(t) > 0
-                ? new x.default(t).mul(0.25).toString()
+                ? new T.default(t).mul(0.25).toString()
                 : '0'
             })
           } catch (t) {
@@ -33255,7 +33255,7 @@
                 ),
                 Promise.resolve(null))
               : Promise.resolve(s.getDTAddress(r)).then(function (a) {
-                  var u = new x.default(n),
+                  var u = new T.default(n),
                     h = u.greaterThan
                   return Promise.resolve(s.getDTMaxBuyQuantity(r)).then(
                     function (f) {
@@ -33266,7 +33266,7 @@
                           null)
                         : Promise.resolve(s.getOceanNeeded(r, n)).then(
                             function (u) {
-                              return new x.default(u).greaterThan(i)
+                              return new T.default(u).greaterThan(i)
                                 ? (s.logger.error(
                                     'ERROR: Not enough Ocean Tokens'
                                   ),
@@ -33320,7 +33320,7 @@
                 ),
                 Promise.resolve(null))
               : Promise.resolve(s.getDTAddress(r)).then(function (a) {
-                  var u = new x.default(n),
+                  var u = new T.default(n),
                     h = u.greaterThan
                   return Promise.resolve(s.getDTMaxBuyQuantity(r)).then(
                     function (f) {
@@ -33331,7 +33331,7 @@
                           null)
                         : Promise.resolve(s.getOceanNeeded(r, n)).then(
                             function (u) {
-                              return new x.default(u).greaterThan(i)
+                              return new T.default(u).greaterThan(i)
                                 ? (s.logger.error(
                                     'ERROR: Not enough Ocean Tokens'
                                   ),
@@ -33383,7 +33383,7 @@
               ? (s.logger.error('ERROR: oceanAddress is not defined'),
                 Promise.resolve(null))
               : Promise.resolve(s.getDTAddress(r)).then(function (a) {
-                  var u = new x.default(i),
+                  var u = new T.default(i),
                     h = u.greaterThan
                   return Promise.resolve(s.getOceanMaxBuyQuantity(r)).then(
                     function (f) {
@@ -33394,7 +33394,7 @@
                           null)
                         : Promise.resolve(s.getOceanReceived(r, n)).then(
                             function (u) {
-                              return new x.default(u).lessThan(i)
+                              return new T.default(u).lessThan(i)
                                 ? (s.logger.error(
                                     'ERROR: Not enough datatokens'
                                   ),
@@ -33446,7 +33446,7 @@
               return Promise.resolve(i.getMaxAddLiquidity(r, o)).then(function (
                 s
               ) {
-                return new x.default(n).greaterThan(s)
+                return new T.default(n).greaterThan(s)
                   ? (i.logger.error('ERROR: Too much reserve to add'), null)
                   : Promise.resolve(
                       t.prototype.approve.call(
@@ -33487,23 +33487,23 @@
             return Promise.resolve(i.getDTAddress(e)).then(function (o) {
               return Promise.resolve(i.getDTMaxRemoveLiquidity(e)).then(
                 function (s) {
-                  return new x.default(r).greaterThan(s)
+                  return new T.default(r).greaterThan(s)
                     ? (i.logger.error('ERROR: Too much reserve to remove'),
                       null)
                     : Promise.resolve(i.sharesBalance(t, e)).then(function (s) {
-                        return new x.default(s).lessThan(n)
+                        return new T.default(s).lessThan(n)
                           ? (i.logger.error('ERROR: Not enough poolShares'),
                             null)
                           : Promise.resolve(
                               i.getPoolSharesRequiredToRemoveDT(e, r)
                             ).then(function (s) {
-                              return new x.default(n).lessThan(s)
+                              return new T.default(n).lessThan(s)
                                 ? (i.logger.error(
                                     'ERROR: Not enough poolShares'
                                   ),
                                   null)
-                                : (new x.default(n).lessThan(s) &&
-                                    (n = new x.default(n)
+                                : (new T.default(n).lessThan(s) &&
+                                    (n = new T.default(n)
                                       .mul(0.9999)
                                       .toString()),
                                   i.exitswapExternAmountOut(t, e, o, r, n))
@@ -33525,7 +33525,7 @@
               : Promise.resolve(i.getOceanMaxAddLiquidity(r)).then(function (
                   o
                 ) {
-                  return new x.default(n).greaterThan(o)
+                  return new T.default(n).greaterThan(o)
                     ? (i.logger.error('ERROR: Too much reserve to add'), null)
                     : Promise.resolve(
                         t.prototype.approve.call(
@@ -33568,7 +33568,7 @@
               ? (o.logger.error('ERROR: oceanAddress is not defined'),
                 Promise.resolve(null))
               : Promise.resolve(o.sharesBalance(e, r)).then(function (s) {
-                  return new x.default(s).lessThan(n)
+                  return new T.default(s).lessThan(n)
                     ? (o.logger.error('ERROR: Not enough poolShares'), null)
                     : t.prototype.exitswapPoolAmountIn.call(
                         o,
@@ -33592,23 +33592,23 @@
               : Promise.resolve(o.getOceanMaxRemoveLiquidity(r)).then(function (
                   s
                 ) {
-                  return new x.default(n).greaterThan(s)
+                  return new T.default(n).greaterThan(s)
                     ? (o.logger.error('ERROR: Too much reserve to remove'),
                       null)
                     : Promise.resolve(o.sharesBalance(e, r)).then(function (s) {
-                        return new x.default(s).lessThan(i)
+                        return new T.default(s).lessThan(i)
                           ? (o.logger.error('ERROR: Not enough poolShares'),
                             null)
                           : Promise.resolve(
                               o.getPoolSharesRequiredToRemoveOcean(r, n)
                             ).then(function (s) {
-                              return new x.default(i).lessThan(s)
+                              return new T.default(i).lessThan(s)
                                 ? (o.logger.error(
                                     'ERROR: Not enough poolShares'
                                   ),
                                   null)
-                                : (new x.default(i).lessThan(s) &&
-                                    (i = new x.default(i)
+                                : (new T.default(i).lessThan(s) &&
+                                    (i = new T.default(i)
                                       .mul(0.9999)
                                       .toString()),
                                   t.prototype.exitswapExternAmountOut.call(
@@ -33631,10 +33631,10 @@
           try {
             var o = this
             return Promise.resolve(o.sharesBalance(t, e)).then(function (s) {
-              return new x.default(s).lessThan(r)
+              return new T.default(s).lessThan(r)
                 ? (o.logger.error('ERROR: Not enough poolShares'), null)
-                : (new x.default(s).equals(r) &&
-                    (r = new x.default(r).mul(0.9999).toString()),
+                : (new T.default(s).equals(r) &&
+                    (r = new T.default(r).mul(0.9999).toString()),
                   o.exitPool(t, e, r, [n, i]))
             })
           } catch (t) {
@@ -33691,7 +33691,7 @@
           try {
             var r = this
             return Promise.resolve(r.getDTAddress(t)).then(function (n) {
-              var i = new x.default(e),
+              var i = new T.default(e),
                 o = i.greaterThan
               return Promise.resolve(r.getDTMaxBuyQuantity(t)).then(function (
                 s
@@ -33729,7 +33729,7 @@
           try {
             var r = this
             return Promise.resolve(r.getDTAddress(t)).then(function (n) {
-              var i = new x.default(e),
+              var i = new T.default(e),
                 o = i.greaterThan
               return Promise.resolve(r.getOceanMaxBuyQuantity(t)).then(
                 function (s) {
@@ -34055,7 +34055,7 @@
               return Promise.resolve(
                 t.prototype.calcSpotPrice.call(h, e, s, n, a, o, u)
               ).then(function (t) {
-                return new x.default(t).mul(100).div(r).minus(100).toString()
+                return new T.default(t).mul(100).div(r).minus(100).toString()
               })
             })
           } catch (t) {
@@ -35264,9 +35264,9 @@
                     t
                   ) {
                     return !(
-                      new x.default(t).greaterThanOrEqualTo(i.maxBalance) ||
-                      new x.default(String(r)).greaterThan(i.maxTokens) ||
-                      (!new x.default(i.balance).greaterThanOrEqualTo(r) &&
+                      new T.default(t).greaterThanOrEqualTo(i.maxBalance) ||
+                      new T.default(String(r)).greaterThan(i.maxTokens) ||
+                      (!new T.default(i.balance).greaterThanOrEqualTo(r) &&
                         !0 !== i.isTrueMinter)
                     )
                   })
@@ -35565,43 +35565,43 @@
           (e.getAddressesFromEnv = function (t) {
             var e
             if (q.default[t]) {
-              var n = q.default[t]
+              var r = q.default[t]
               e = Z(
                 {
-                  factoryAddress: n.DTFactory,
-                  poolFactoryAddress: n.BFactory,
-                  fixedRateExchangeAddress: n.FixedRateExchange,
-                  dispenserAddress: n.Dispenser,
-                  metadataContractAddress: n.Metadata,
-                  oceanTokenAddress: n.Ocean,
-                  networkId: n.chainId,
-                  startBlock: n.startBlock
+                  factoryAddress: r.DTFactory,
+                  poolFactoryAddress: r.BFactory,
+                  fixedRateExchangeAddress: r.FixedRateExchange,
+                  dispenserAddress: r.Dispenser,
+                  metadataContractAddress: r.Metadata,
+                  oceanTokenAddress: r.Ocean,
+                  networkId: r.chainId,
+                  startBlock: r.startBlock
                 },
                 process.env.AQUARIUS_URI && {
                   metadataCacheUri: process.env.AQUARIUS_URI
                 }
               )
             }
-            if (R.default && process.env.ADDRESS_FILE)
+            if (x.default && process.env.ADDRESS_FILE)
               try {
-                var i = JSON.parse(
-                  R.default.readFileSync(
+                var n = JSON.parse(
+                  x.default.readFileSync(
                     process.env.ADDRESS_FILE ||
-                      r.homedir +
+                      w.homedir +
                         '/.ocean/ocean-contracts/artifacts/address.json',
                     'utf8'
                   )
                 )[t]
                 e = Z(
                   {
-                    factoryAddress: i.DTFactory,
-                    poolFactoryAddress: i.BFactory,
-                    fixedRateExchangeAddress: i.FixedRateExchange,
-                    dispenserAddress: i.Dispenser,
-                    metadataContractAddress: i.Metadata,
-                    oceanTokenAddress: i.Ocean,
-                    networkId: i.chainId,
-                    startBlock: i.startBlock
+                    factoryAddress: n.DTFactory,
+                    poolFactoryAddress: n.BFactory,
+                    fixedRateExchangeAddress: n.FixedRateExchange,
+                    dispenserAddress: n.Dispenser,
+                    metadataContractAddress: n.Metadata,
+                    oceanTokenAddress: n.Ocean,
+                    networkId: n.chainId,
+                    startBlock: n.startBlock
                   },
                   process.env.AQUARIUS_URI && {
                     metadataCacheUri: process.env.AQUARIUS_URI
@@ -38092,7 +38092,7 @@
                       (function (t) {
                         try {
                           return Promise.resolve(
-                            O.default(t, {
+                            I.default(t, {
                               method: 'GET',
                               headers: { 'Content-type': 'application/json' }
                             })
@@ -38148,7 +38148,7 @@
                       ? gl(
                           function () {
                             return Promise.resolve(
-                              O.default(t + '?userAddress=' + e, {
+                              I.default(t + '?userAddress=' + e, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json' },
                                 signal: r
@@ -38295,7 +38295,7 @@
                       ? gl(
                           function () {
                             return Promise.resolve(
-                              O.default(i, {
+                              I.default(i, {
                                 method: 'POST',
                                 body: decodeURI(JSON.stringify(t)),
                                 headers: {
@@ -38336,7 +38336,7 @@
                       ? gl(
                           function () {
                             return Promise.resolve(
-                              O.default(a, {
+                              I.default(a, {
                                 method: 'POST',
                                 body: JSON.stringify(o),
                                 headers: { 'Content-Type': 'application/json' },
@@ -38379,7 +38379,7 @@
                       ? gl(
                           function () {
                             return Promise.resolve(
-                              O.default(s, {
+                              I.default(s, {
                                 method: 'POST',
                                 body: JSON.stringify(i),
                                 headers: { 'Content-Type': 'application/json' },
@@ -38422,7 +38422,7 @@
                       ? gl(
                           function () {
                             return Promise.resolve(
-                              O.default(i, {
+                              I.default(i, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json' },
                                 signal: e
@@ -38463,7 +38463,7 @@
                         gl(
                           function () {
                             return Promise.resolve(
-                              O.default(f, {
+                              I.default(f, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json' },
                                 signal: o
@@ -38554,7 +38554,7 @@
                               ? gl(
                                   function () {
                                     return Promise.resolve(
-                                      O.default(f, {
+                                      I.default(f, {
                                         method: 'POST',
                                         body: JSON.stringify(e),
                                         headers: {
@@ -38635,7 +38635,7 @@
                                   ? gl(
                                       function () {
                                         return Promise.resolve(
-                                          O.default(h, {
+                                          I.default(h, {
                                             method: 'PUT',
                                             body: JSON.stringify(i),
                                             headers: {
@@ -38711,7 +38711,7 @@
                         ? gl(
                             function () {
                               return Promise.resolve(
-                                O.default(s + a, {
+                                I.default(s + a, {
                                   method: 'GET',
                                   headers: {
                                     'Content-Type': 'application/json'
@@ -38806,7 +38806,7 @@
                                               (function (t, e) {
                                                 try {
                                                   return Promise.resolve(
-                                                    O.default(t)
+                                                    I.default(t)
                                                   ).then(function (r) {
                                                     if (!r.ok)
                                                       throw new Error(
@@ -38893,7 +38893,7 @@
                                   ? gl(
                                       function () {
                                         return Promise.resolve(
-                                          O.default(h, {
+                                          I.default(h, {
                                             method: 'DELETE',
                                             body: JSON.stringify(i),
                                             headers: {
@@ -38956,7 +38956,7 @@
                 gl(
                   function () {
                     return Promise.resolve(
-                      O.default(t, {
+                      I.default(t, {
                         method: 'GET',
                         headers: { 'Content-Type': 'application/json' },
                         signal: e
@@ -39011,7 +39011,7 @@
       return (
         (e.generateDidv4 = function (t) {
           try {
-            var e = v.SHA256(t + (1).toString(10))
+            var e = m.SHA256(t + (1).toString(10))
             return Promise.resolve('did:op:' + e.toString())
           } catch (t) {
             return Promise.reject(t)
