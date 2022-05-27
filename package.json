@@ -41,6 +41,7 @@
   "dependencies": {
     "@ethereum-navigator/navigator": "^0.5.3",
     "@oceanprotocol/contracts": "^0.6.9",
+    "assert": "^2.0.0",
     "axios": "^0.25.0",
     "cross-fetch": "^3.1.5",
     "crypto-js": "^4.1.1",
@@ -49,7 +50,9 @@
     "lzma": "^2.3.2",
     "microbundle": "^0.14.2",
     "node-abort-controller": "^2.0.0",
+    "os": "^0.1.2",
     "save-file": "^2.3.1",
+    "stream": "0.0.2",
     "uuid": "^8.3.2",
     "web3": "^1.6.1",
     "web3-core": "^1.5.3",
