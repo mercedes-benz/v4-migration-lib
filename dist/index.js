@@ -1,23 +1,23 @@
+var t = require('assert'),
+  e = require('os'),
+  r = require('stream')
 require('uuid')
-var t = require('decimal.js'),
-  e = require('web3'),
-  r = require('fs'),
-  n = require('save-file'),
-  i = require('node-abort-controller'),
-  o = require('cross-fetch'),
-  s = require('assert'),
-  a = require('stream'),
-  u = require('@oceanprotocol/contracts/artifacts/Metadata.json'),
-  h = require('lzma/src/lzma-c'),
-  f = require('@oceanprotocol/contracts/artifacts/DTFactory.json'),
-  l = require('@oceanprotocol/contracts/artifacts/DataTokenTemplate.json'),
-  c = require('@ethereum-navigator/navigator'),
-  d = require('crypto-js'),
-  p = require('@oceanprotocol/contracts/artifacts/BPool.json'),
-  m = require('@oceanprotocol/contracts/artifacts/BFactory.json'),
-  v = require('@oceanprotocol/contracts/artifacts/FixedRateExchange.json'),
-  g = require('@oceanprotocol/contracts/artifacts/Dispenser.json'),
-  y = require('os'),
+var n = require('decimal.js'),
+  i = require('web3'),
+  o = require('fs'),
+  s = require('save-file'),
+  a = require('node-abort-controller'),
+  u = require('cross-fetch'),
+  h = require('@oceanprotocol/contracts/artifacts/Metadata.json'),
+  f = require('lzma/src/lzma-c'),
+  l = require('@oceanprotocol/contracts/artifacts/DTFactory.json'),
+  c = require('@oceanprotocol/contracts/artifacts/DataTokenTemplate.json'),
+  d = require('@ethereum-navigator/navigator'),
+  p = require('crypto-js'),
+  m = require('@oceanprotocol/contracts/artifacts/BPool.json'),
+  v = require('@oceanprotocol/contracts/artifacts/BFactory.json'),
+  g = require('@oceanprotocol/contracts/artifacts/FixedRateExchange.json'),
+  y = require('@oceanprotocol/contracts/artifacts/Dispenser.json'),
   b = require('@oceanprotocol/contracts/artifacts/address.json'),
   w = require('axios'),
   M = require('crypto-js/sha256')
@@ -26,20 +26,20 @@ function _(t) {
 }
 var P,
   A = /*#__PURE__*/ _(t),
-  S = /*#__PURE__*/ _(e),
-  T = /*#__PURE__*/ _(r),
-  E = /*#__PURE__*/ _(n),
-  x = /*#__PURE__*/ _(i),
-  k = /*#__PURE__*/ _(o),
-  R = /*#__PURE__*/ _(s),
-  I = /*#__PURE__*/ _(a),
-  B = /*#__PURE__*/ _(u),
-  O = /*#__PURE__*/ _(f),
-  C = /*#__PURE__*/ _(l),
-  j = /*#__PURE__*/ _(p),
-  L = /*#__PURE__*/ _(m),
-  N = /*#__PURE__*/ _(v),
-  D = /*#__PURE__*/ _(g),
+  S = /*#__PURE__*/ _(r),
+  T = /*#__PURE__*/ _(n),
+  E = /*#__PURE__*/ _(i),
+  x = /*#__PURE__*/ _(o),
+  k = /*#__PURE__*/ _(s),
+  R = /*#__PURE__*/ _(a),
+  I = /*#__PURE__*/ _(u),
+  B = /*#__PURE__*/ _(h),
+  O = /*#__PURE__*/ _(l),
+  C = /*#__PURE__*/ _(c),
+  j = /*#__PURE__*/ _(m),
+  L = /*#__PURE__*/ _(v),
+  N = /*#__PURE__*/ _(g),
+  D = /*#__PURE__*/ _(y),
   U = /*#__PURE__*/ _(b),
   F = /*#__PURE__*/ _(w),
   q = /*#__PURE__*/ _(M)
@@ -2040,7 +2040,7 @@ var vt = /*#__PURE__*/ (function (t) {
                 var o = new e.web3.eth.Contract(r, t, { from: e.id })
                 return Promise.resolve(o.methods.balanceOf(e.id).call()).then(
                   function (t) {
-                    n = new A.default(t).div(Math.pow(10, i)).toString()
+                    n = new T.default(t).div(Math.pow(10, i)).toString()
                   }
                 )
               },
@@ -2195,10 +2195,10 @@ var vt = /*#__PURE__*/ (function (t) {
       (t.getWeb3 = function (t) {
         return (
           void 0 === t && (t = {}),
-          new S.default(
+          new E.default(
             t.web3Provider ||
-              S.default.givenProvider ||
-              new S.default.providers.HttpProvider(t.nodeUri)
+              E.default.givenProvider ||
+              new E.default.providers.HttpProvider(t.nodeUri)
           )
         )
       }),
@@ -2300,7 +2300,7 @@ function Mt(t) {
   if (!Number.isInteger(t))
     throw new TypeError('Expected an integer, got ' + typeof t)
   var e = new WeakMap(),
-    r = new x.default(),
+    r = new R.default(),
     n = setTimeout(function () {
       r.abort()
     }, t)
@@ -2397,8 +2397,8 @@ var _t = /*#__PURE__*/ (function () {
             ? Promise.resolve(
                 new Promise(function (t, r) {
                   try {
-                    T.default.mkdirSync(e, { recursive: !0 })
-                    var o = T.default.createWriteStream('' + e + i)
+                    x.default.mkdirSync(e, { recursive: !0 })
+                    var o = x.default.createWriteStream('' + e + i)
                     return (
                       n.body.pipe(o),
                       n.body.on('error', r),
@@ -2413,7 +2413,7 @@ var _t = /*#__PURE__*/ (function () {
                 return e
               })
             : Promise.resolve(n.arrayBuffer()).then(function (t) {
-                E.default(t, i)
+                k.default(t, i)
               })
         })
       } catch (t) {
@@ -2431,7 +2431,7 @@ var _t = /*#__PURE__*/ (function () {
     (e.fetch = function (t, e) {
       try {
         var r = this
-        return Promise.resolve(k.default(t, e)).then(function (n) {
+        return Promise.resolve(I.default(t, e)).then(function (n) {
           var i = (function () {
             if (!n.ok) {
               r.logger.error('Error requesting [' + e.method + '] ' + t)
@@ -3178,7 +3178,7 @@ var At = /*#__PURE__*/ (function (t) {
                 Pt(
                   function () {
                     return Promise.resolve(
-                      k.default(s, {
+                      I.default(s, {
                         method: 'GET',
                         headers: { 'Content-Type': 'application/json' }
                       })
@@ -24179,7 +24179,7 @@ var Zu = Gu,
       (e.sha512 = zu)
   }),
   Vu = Qn.Buffer,
-  Ju = I.default.Transform,
+  Ju = S.default.Transform,
   $u = Uo.StringDecoder
 function Xu(t) {
   Ju.call(this),
@@ -24438,7 +24438,7 @@ var th = function (t) {
         e.isValidAddress =
         e.Account =
           void 0)
-    var i = n(R.default),
+    var i = n(A.default),
       o = (function () {
         function t(t, e, r, n) {
           void 0 === t && (t = new Xt.BN(0)),
@@ -24623,7 +24623,7 @@ var th = function (t) {
         return t && t.__esModule ? t : { default: t }
       }
     Object.defineProperty(e, '__esModule', { value: !0 }), (e.Address = void 0)
-    var n = r(R.default),
+    var n = r(A.default),
       i = (function () {
         function t(t) {
           ;(0, n.default)(20 === t.length, 'Invalid address length'),
@@ -24825,7 +24825,7 @@ var th = function (t) {
       }
     Object.defineProperty(e, '__esModule', { value: !0 }),
       (e.defineProperties = void 0)
-    var n = r(R.default)
+    var n = r(A.default)
     e.defineProperties = function (t, e, r) {
       if (
         ((t.raw = []),
@@ -27781,7 +27781,7 @@ var lf = /*#__PURE__*/ (function () {
         var r,
           n = this,
           i = 0,
-          s = (function (t, e) {
+          o = (function (t, e) {
             var r
             do {
               var n = t()
@@ -27822,16 +27822,16 @@ var lf = /*#__PURE__*/ (function () {
             }
           })(
             function () {
-              function s() {
+              function o() {
                 if (!r)
                   return Promise.resolve(n.sleep(1500)).then(function () {
                     i++
                   })
               }
-              var a = sf(
+              var s = sf(
                 function () {
                   return Promise.resolve(
-                    o.fetch(n.getURI() + '/api/v1/aquarius/assets/ddo/' + t)
+                    u.fetch(n.getURI() + '/api/v1/aquarius/assets/ddo/' + t)
                   ).then(function (t) {
                     var n = (function () {
                       if (t.ok) {
@@ -27850,13 +27850,13 @@ var lf = /*#__PURE__*/ (function () {
                 },
                 function () {}
               )
-              return a && a.then ? a.then(s) : s()
+              return s && s.then ? s.then(o) : o()
             },
             function () {
               return !r && i < 100
             }
           )
-        return Promise.resolve(s && s.then ? s.then(function () {}) : void 0)
+        return Promise.resolve(o && o.then ? o.then(function () {}) : void 0)
       } catch (t) {
         return Promise.reject(t)
       }
@@ -27911,8 +27911,8 @@ var df = /*#__PURE__*/ (function () {
   return (
     (e.compressDDO = function (t) {
       try {
-        h.LZMA.disableEndMark = !0
-        var e = h.LZMA.compress(t, 9)
+        f.LZMA.disableEndMark = !0
+        var e = f.LZMA.compress(t, 9)
         return Promise.resolve(e)
       } catch (t) {
         return Promise.reject(t)
@@ -28357,7 +28357,7 @@ var vf = /*#__PURE__*/ (function () {
               i.config
             )
           return Promise.resolve(i.getCap(t)).then(function (t) {
-            if (new A.default(t).gte(r)) {
+            if (new T.default(t).gte(r)) {
               var s,
                 a = function () {
                   var t = o.methods.mint(n || e, i.web3.utils.toWei(r)),
@@ -28855,7 +28855,7 @@ var vf = /*#__PURE__*/ (function () {
         try {
           return Promise.resolve(
             this.web3.eth.net.getId().then(function (t) {
-              var e = c.lookup(t)
+              var e = d.lookup(t)
               return e && e.name ? e.name : 'Development'
             })
           )
@@ -29612,12 +29612,12 @@ var Sf = /*#__PURE__*/ (function (t) {
               i.attributes.main.files
               ? {
                   did: t,
-                  containerSectionChecksum: d
+                  containerSectionChecksum: p
                     .SHA256(
                       JSON.stringify(i.attributes.main.algorithm.container)
                     )
                     .toString(),
-                  filesChecksum: d
+                  filesChecksum: p
                     .SHA256(
                       i.attributes.encryptedFiles +
                         JSON.stringify(i.attributes.main.files)
@@ -30051,7 +30051,7 @@ var Cf = /*#__PURE__*/ (function (t) {
             if (!i)
               return Promise.resolve(a.allowance(e, t, r)).then(function (t) {
                 if (
-                  new A.default(a.web3.utils.toWei(t)).greaterThanOrEqualTo(n)
+                  new T.default(a.web3.utils.toWei(t)).greaterThanOrEqualTo(n)
                 )
                   return (o = 1), t
               })
@@ -31267,7 +31267,7 @@ var Cf = /*#__PURE__*/ (function (t) {
         var a = this,
           u = ft(new a.web3.eth.Contract(a.poolABI, t), a.config),
           h = null
-        if (new A.default(o).gte(n)) return Promise.resolve(null)
+        if (new T.default(o).gte(n)) return Promise.resolve(null)
         var f = xf(
           function () {
             return Promise.resolve(
@@ -31762,7 +31762,7 @@ var Uf = /*#__PURE__*/ (function (t) {
       try {
         return Promise.resolve(t.prototype.getReserve.call(this, e, r)).then(
           function (t) {
-            return new A.default(t).div(3).toString()
+            return new T.default(t).div(3).toString()
           }
         )
       } catch (t) {
@@ -32010,8 +32010,8 @@ var Uf = /*#__PURE__*/ (function (t) {
                       t
                     ) {
                       return {
-                        dtAmount: new A.default(e).div(n).mul(i).toString(),
-                        oceanAmount: new A.default(e).div(n).mul(t).toString()
+                        dtAmount: new T.default(e).div(n).mul(i).toString(),
+                        oceanAmount: new T.default(e).div(n).mul(t).toString()
                       }
                     })
                   })
@@ -32051,7 +32051,7 @@ var Uf = /*#__PURE__*/ (function (t) {
         return Promise.resolve(t.prototype.getReserve.call(this, e, r)).then(
           function (t) {
             return parseFloat(t) > 0
-              ? new A.default(t).mul(0.25).toString()
+              ? new T.default(t).mul(0.25).toString()
               : '0'
           }
         )
@@ -32064,7 +32064,7 @@ var Uf = /*#__PURE__*/ (function (t) {
         return Promise.resolve(t.prototype.getReserve.call(this, e, r)).then(
           function (t) {
             return parseFloat(t) > 0
-              ? new A.default(t).mul(0.25).toString()
+              ? new T.default(t).mul(0.25).toString()
               : '0'
           }
         )
@@ -32096,7 +32096,7 @@ var Uf = /*#__PURE__*/ (function (t) {
           ? (s.logger.error('ERROR: undefined ocean token contract address'),
             Promise.resolve(null))
           : Promise.resolve(s.getDTAddress(r)).then(function (a) {
-              var u = new A.default(n),
+              var u = new T.default(n),
                 h = u.greaterThan
               return Promise.resolve(s.getDTMaxBuyQuantity(r)).then(function (
                 f
@@ -32107,7 +32107,7 @@ var Uf = /*#__PURE__*/ (function (t) {
                     ),
                     null)
                   : Promise.resolve(s.getOceanNeeded(r, n)).then(function (u) {
-                      return new A.default(u).greaterThan(i)
+                      return new T.default(u).greaterThan(i)
                         ? (s.logger.error('ERROR: Not enough Ocean Tokens'),
                           null)
                         : Promise.resolve(
@@ -32155,7 +32155,7 @@ var Uf = /*#__PURE__*/ (function (t) {
           ? (s.logger.error('ERROR: undefined ocean token contract address'),
             Promise.resolve(null))
           : Promise.resolve(s.getDTAddress(r)).then(function (a) {
-              var u = new A.default(n),
+              var u = new T.default(n),
                 h = u.greaterThan
               return Promise.resolve(s.getDTMaxBuyQuantity(r)).then(function (
                 f
@@ -32166,7 +32166,7 @@ var Uf = /*#__PURE__*/ (function (t) {
                     ),
                     null)
                   : Promise.resolve(s.getOceanNeeded(r, n)).then(function (u) {
-                      return new A.default(u).greaterThan(i)
+                      return new T.default(u).greaterThan(i)
                         ? (s.logger.error('ERROR: Not enough Ocean Tokens'),
                           null)
                         : Promise.resolve(
@@ -32214,7 +32214,7 @@ var Uf = /*#__PURE__*/ (function (t) {
           ? (s.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
           : Promise.resolve(s.getDTAddress(r)).then(function (a) {
-              var u = new A.default(i),
+              var u = new T.default(i),
                 h = u.greaterThan
               return Promise.resolve(s.getOceanMaxBuyQuantity(r)).then(
                 function (f) {
@@ -32226,7 +32226,7 @@ var Uf = /*#__PURE__*/ (function (t) {
                     : Promise.resolve(s.getOceanReceived(r, n)).then(function (
                         u
                       ) {
-                        return new A.default(u).lessThan(i)
+                        return new T.default(u).lessThan(i)
                           ? (s.logger.error('ERROR: Not enough datatokens'),
                             null)
                           : Promise.resolve(
@@ -32273,7 +32273,7 @@ var Uf = /*#__PURE__*/ (function (t) {
         var i = this
         return Promise.resolve(i.getDTAddress(r)).then(function (o) {
           return Promise.resolve(i.getMaxAddLiquidity(r, o)).then(function (s) {
-            return new A.default(n).greaterThan(s)
+            return new T.default(n).greaterThan(s)
               ? (i.logger.error('ERROR: Too much reserve to add'), null)
               : Promise.resolve(
                   t.prototype.approve.call(i, e, o, r, i.web3.utils.toWei(n))
@@ -32300,19 +32300,19 @@ var Uf = /*#__PURE__*/ (function (t) {
           return Promise.resolve(i.getDTMaxRemoveLiquidity(e)).then(function (
             s
           ) {
-            return new A.default(r).greaterThan(s)
+            return new T.default(r).greaterThan(s)
               ? (i.logger.error('ERROR: Too much reserve to remove'), null)
               : Promise.resolve(i.sharesBalance(t, e)).then(function (s) {
-                  return new A.default(s).lessThan(n)
+                  return new T.default(s).lessThan(n)
                     ? (i.logger.error('ERROR: Not enough poolShares'), null)
                     : Promise.resolve(
                         i.getPoolSharesRequiredToRemoveDT(e, r)
                       ).then(function (s) {
-                        return new A.default(n).lessThan(s)
+                        return new T.default(n).lessThan(s)
                           ? (i.logger.error('ERROR: Not enough poolShares'),
                             null)
-                          : (new A.default(n).lessThan(s) &&
-                              (n = new A.default(n).mul(0.9999).toString()),
+                          : (new T.default(n).lessThan(s) &&
+                              (n = new T.default(n).mul(0.9999).toString()),
                             i.exitswapExternAmountOut(t, e, o, r, n))
                       })
                 })
@@ -32329,7 +32329,7 @@ var Uf = /*#__PURE__*/ (function (t) {
           ? (i.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
           : Promise.resolve(i.getOceanMaxAddLiquidity(r)).then(function (o) {
-              return new A.default(n).greaterThan(o)
+              return new T.default(n).greaterThan(o)
                 ? (i.logger.error('ERROR: Too much reserve to add'), null)
                 : Promise.resolve(
                     t.prototype.approve.call(
@@ -32370,7 +32370,7 @@ var Uf = /*#__PURE__*/ (function (t) {
           ? (o.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
           : Promise.resolve(o.sharesBalance(e, r)).then(function (s) {
-              return new A.default(s).lessThan(n)
+              return new T.default(s).lessThan(n)
                 ? (o.logger.error('ERROR: Not enough poolShares'), null)
                 : t.prototype.exitswapPoolAmountIn.call(
                     o,
@@ -32392,19 +32392,19 @@ var Uf = /*#__PURE__*/ (function (t) {
           ? (o.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
           : Promise.resolve(o.getOceanMaxRemoveLiquidity(r)).then(function (s) {
-              return new A.default(n).greaterThan(s)
+              return new T.default(n).greaterThan(s)
                 ? (o.logger.error('ERROR: Too much reserve to remove'), null)
                 : Promise.resolve(o.sharesBalance(e, r)).then(function (s) {
-                    return new A.default(s).lessThan(i)
+                    return new T.default(s).lessThan(i)
                       ? (o.logger.error('ERROR: Not enough poolShares'), null)
                       : Promise.resolve(
                           o.getPoolSharesRequiredToRemoveOcean(r, n)
                         ).then(function (s) {
-                          return new A.default(i).lessThan(s)
+                          return new T.default(i).lessThan(s)
                             ? (o.logger.error('ERROR: Not enough poolShares'),
                               null)
-                            : (new A.default(i).lessThan(s) &&
-                                (i = new A.default(i).mul(0.9999).toString()),
+                            : (new T.default(i).lessThan(s) &&
+                                (i = new T.default(i).mul(0.9999).toString()),
                               t.prototype.exitswapExternAmountOut.call(
                                 o,
                                 e,
@@ -32425,10 +32425,10 @@ var Uf = /*#__PURE__*/ (function (t) {
       try {
         var o = this
         return Promise.resolve(o.sharesBalance(t, e)).then(function (s) {
-          return new A.default(s).lessThan(r)
+          return new T.default(s).lessThan(r)
             ? (o.logger.error('ERROR: Not enough poolShares'), null)
-            : (new A.default(s).equals(r) &&
-                (r = new A.default(r).mul(0.9999).toString()),
+            : (new T.default(s).equals(r) &&
+                (r = new T.default(r).mul(0.9999).toString()),
               o.exitPool(t, e, r, [n, i]))
         })
       } catch (t) {
@@ -32485,7 +32485,7 @@ var Uf = /*#__PURE__*/ (function (t) {
       try {
         var r = this
         return Promise.resolve(r.getDTAddress(t)).then(function (n) {
-          var i = new A.default(e),
+          var i = new T.default(e),
             o = i.greaterThan
           return Promise.resolve(r.getDTMaxBuyQuantity(t)).then(function (s) {
             return o.call(i, s)
@@ -32521,7 +32521,7 @@ var Uf = /*#__PURE__*/ (function (t) {
       try {
         var r = this
         return Promise.resolve(r.getDTAddress(t)).then(function (n) {
-          var i = new A.default(e),
+          var i = new T.default(e),
             o = i.greaterThan
           return Promise.resolve(r.getOceanMaxBuyQuantity(t)).then(function (
             s
@@ -32841,7 +32841,7 @@ var Uf = /*#__PURE__*/ (function (t) {
           return Promise.resolve(
             t.prototype.calcSpotPrice.call(h, e, s, n, a, o, u)
           ).then(function (t) {
-            return new A.default(t).mul(100).div(r).minus(100).toString()
+            return new T.default(t).mul(100).div(r).minus(100).toString()
           })
         })
       } catch (t) {
@@ -34007,9 +34007,9 @@ var Jf,
               !1 !== i.active &&
               Promise.resolve(n.datatokens.balance(t, e)).then(function (t) {
                 return !(
-                  new A.default(t).greaterThanOrEqualTo(i.maxBalance) ||
-                  new A.default(String(r)).greaterThan(i.maxTokens) ||
-                  (!new A.default(i.balance).greaterThanOrEqualTo(r) &&
+                  new T.default(t).greaterThanOrEqualTo(i.maxBalance) ||
+                  new T.default(String(r)).greaterThan(i.maxTokens) ||
+                  (!new T.default(i.balance).greaterThanOrEqualTo(r) &&
                     !0 !== i.isTrueMinter)
                 )
               })
@@ -34301,56 +34301,56 @@ var Jf,
   ],
   tl = /*#__PURE__*/ (function () {
     function t() {}
-    var e = t.prototype
+    var r = t.prototype
     return (
-      (e.getAddressesFromEnv = function (t) {
-        var e
+      (r.getAddressesFromEnv = function (t) {
+        var r
         if (U.default[t]) {
-          var r = U.default[t]
-          e = H(
+          var n = U.default[t]
+          r = H(
             {
-              factoryAddress: r.DTFactory,
-              poolFactoryAddress: r.BFactory,
-              fixedRateExchangeAddress: r.FixedRateExchange,
-              dispenserAddress: r.Dispenser,
-              metadataContractAddress: r.Metadata,
-              oceanTokenAddress: r.Ocean,
-              networkId: r.chainId,
-              startBlock: r.startBlock
+              factoryAddress: n.DTFactory,
+              poolFactoryAddress: n.BFactory,
+              fixedRateExchangeAddress: n.FixedRateExchange,
+              dispenserAddress: n.Dispenser,
+              metadataContractAddress: n.Metadata,
+              oceanTokenAddress: n.Ocean,
+              networkId: n.chainId,
+              startBlock: n.startBlock
             },
             process.env.AQUARIUS_URI && {
               metadataCacheUri: process.env.AQUARIUS_URI
             }
           )
         }
-        if (T.default && process.env.ADDRESS_FILE)
+        if (x.default && process.env.ADDRESS_FILE)
           try {
-            var n = JSON.parse(
-              T.default.readFileSync(
+            var i = JSON.parse(
+              x.default.readFileSync(
                 process.env.ADDRESS_FILE ||
-                  y.homedir + '/.ocean/ocean-contracts/artifacts/address.json',
+                  e.homedir + '/.ocean/ocean-contracts/artifacts/address.json',
                 'utf8'
               )
             )[t]
-            e = H(
+            r = H(
               {
-                factoryAddress: n.DTFactory,
-                poolFactoryAddress: n.BFactory,
-                fixedRateExchangeAddress: n.FixedRateExchange,
-                dispenserAddress: n.Dispenser,
-                metadataContractAddress: n.Metadata,
-                oceanTokenAddress: n.Ocean,
-                networkId: n.chainId,
-                startBlock: n.startBlock
+                factoryAddress: i.DTFactory,
+                poolFactoryAddress: i.BFactory,
+                fixedRateExchangeAddress: i.FixedRateExchange,
+                dispenserAddress: i.Dispenser,
+                metadataContractAddress: i.Metadata,
+                oceanTokenAddress: i.Ocean,
+                networkId: i.chainId,
+                startBlock: i.startBlock
               },
               process.env.AQUARIUS_URI && {
                 metadataCacheUri: process.env.AQUARIUS_URI
               }
             )
           } catch (t) {}
-        return e
+        return r
       }),
-      (e.getConfig = function (t, e) {
+      (r.getConfig = function (t, e) {
         var r = 'string' == typeof t ? 'network' : 'networkId',
           n = Qf.find(function (e) {
             return e[r] === t
@@ -36490,7 +36490,7 @@ var ll = /*#__PURE__*/ (function () {
                   (function (t) {
                     try {
                       return Promise.resolve(
-                        k.default(t, {
+                        I.default(t, {
                           method: 'GET',
                           headers: { 'Content-type': 'application/json' }
                         })
@@ -36546,7 +36546,7 @@ var ll = /*#__PURE__*/ (function () {
                   ? fl(
                       function () {
                         return Promise.resolve(
-                          k.default(t + '?userAddress=' + e, {
+                          I.default(t + '?userAddress=' + e, {
                             method: 'GET',
                             headers: { 'Content-Type': 'application/json' },
                             signal: r
@@ -36683,7 +36683,7 @@ var ll = /*#__PURE__*/ (function () {
                 ? fl(
                     function () {
                       return Promise.resolve(
-                        k.default(i, {
+                        I.default(i, {
                           method: 'POST',
                           body: decodeURI(JSON.stringify(t)),
                           headers: {
@@ -36722,7 +36722,7 @@ var ll = /*#__PURE__*/ (function () {
                 ? fl(
                     function () {
                       return Promise.resolve(
-                        k.default(a, {
+                        I.default(a, {
                           method: 'POST',
                           body: JSON.stringify(o),
                           headers: { 'Content-Type': 'application/json' },
@@ -36763,7 +36763,7 @@ var ll = /*#__PURE__*/ (function () {
                 ? fl(
                     function () {
                       return Promise.resolve(
-                        k.default(s, {
+                        I.default(s, {
                           method: 'POST',
                           body: JSON.stringify(i),
                           headers: { 'Content-Type': 'application/json' },
@@ -36804,7 +36804,7 @@ var ll = /*#__PURE__*/ (function () {
                 ? fl(
                     function () {
                       return Promise.resolve(
-                        k.default(i, {
+                        I.default(i, {
                           method: 'GET',
                           headers: { 'Content-Type': 'application/json' },
                           signal: e
@@ -36845,7 +36845,7 @@ var ll = /*#__PURE__*/ (function () {
                   fl(
                     function () {
                       return Promise.resolve(
-                        k.default(f, {
+                        I.default(f, {
                           method: 'GET',
                           headers: { 'Content-Type': 'application/json' },
                           signal: o
@@ -36934,7 +36934,7 @@ var ll = /*#__PURE__*/ (function () {
                       ? fl(
                           function () {
                             return Promise.resolve(
-                              k.default(f, {
+                              I.default(f, {
                                 method: 'POST',
                                 body: JSON.stringify(e),
                                 headers: { 'Content-Type': 'application/json' },
@@ -37013,7 +37013,7 @@ var ll = /*#__PURE__*/ (function () {
                           ? fl(
                               function () {
                                 return Promise.resolve(
-                                  k.default(h, {
+                                  I.default(h, {
                                     method: 'PUT',
                                     body: JSON.stringify(i),
                                     headers: {
@@ -37088,7 +37088,7 @@ var ll = /*#__PURE__*/ (function () {
                   ? fl(
                       function () {
                         return Promise.resolve(
-                          k.default(s + a, {
+                          I.default(s + a, {
                             method: 'GET',
                             headers: { 'Content-Type': 'application/json' },
                             signal: e
@@ -37181,7 +37181,7 @@ var ll = /*#__PURE__*/ (function () {
                                       (function (t, e) {
                                         try {
                                           return Promise.resolve(
-                                            k.default(t)
+                                            I.default(t)
                                           ).then(function (r) {
                                             if (!r.ok)
                                               throw new Error('Response error.')
@@ -37261,7 +37261,7 @@ var ll = /*#__PURE__*/ (function () {
                           ? fl(
                               function () {
                                 return Promise.resolve(
-                                  k.default(h, {
+                                  I.default(h, {
                                     method: 'DELETE',
                                     body: JSON.stringify(i),
                                     headers: {
@@ -37320,7 +37320,7 @@ var ll = /*#__PURE__*/ (function () {
             fl(
               function () {
                 return Promise.resolve(
-                  k.default(t, {
+                  I.default(t, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' },
                     signal: e
@@ -37373,7 +37373,7 @@ var pl = /*#__PURE__*/ (function () {
   return (
     (e.generateDidv4 = function (t) {
       try {
-        var e = d.SHA256(t + (1).toString(10))
+        var e = p.SHA256(t + (1).toString(10))
         return Promise.resolve('did:op:' + e.toString())
       } catch (t) {
         return Promise.reject(t)

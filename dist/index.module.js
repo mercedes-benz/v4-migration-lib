@@ -1,23 +1,23 @@
+import t from 'assert'
+import { homedir as e } from 'os'
+import r from 'stream'
 import 'uuid'
-import t from 'decimal.js'
-import e from 'web3'
-import r from 'fs'
-import n from 'save-file'
-import i from 'node-abort-controller'
-import o, { fetch as s } from 'cross-fetch'
-import a from 'assert'
-import u from 'stream'
-import h from '@oceanprotocol/contracts/artifacts/Metadata.json'
-import { LZMA as f } from 'lzma/src/lzma-c'
-import l from '@oceanprotocol/contracts/artifacts/DTFactory.json'
-import c from '@oceanprotocol/contracts/artifacts/DataTokenTemplate.json'
-import { lookup as d } from '@ethereum-navigator/navigator'
-import { SHA256 as p } from 'crypto-js'
-import m from '@oceanprotocol/contracts/artifacts/BPool.json'
-import v from '@oceanprotocol/contracts/artifacts/BFactory.json'
-import g from '@oceanprotocol/contracts/artifacts/FixedRateExchange.json'
-import y from '@oceanprotocol/contracts/artifacts/Dispenser.json'
-import { homedir as b } from 'os'
+import n from 'decimal.js'
+import i from 'web3'
+import o from 'fs'
+import s from 'save-file'
+import a from 'node-abort-controller'
+import u, { fetch as h } from 'cross-fetch'
+import f from '@oceanprotocol/contracts/artifacts/Metadata.json'
+import { LZMA as l } from 'lzma/src/lzma-c'
+import c from '@oceanprotocol/contracts/artifacts/DTFactory.json'
+import d from '@oceanprotocol/contracts/artifacts/DataTokenTemplate.json'
+import { lookup as p } from '@ethereum-navigator/navigator'
+import { SHA256 as m } from 'crypto-js'
+import v from '@oceanprotocol/contracts/artifacts/BPool.json'
+import g from '@oceanprotocol/contracts/artifacts/BFactory.json'
+import y from '@oceanprotocol/contracts/artifacts/FixedRateExchange.json'
+import b from '@oceanprotocol/contracts/artifacts/Dispenser.json'
 import w from '@oceanprotocol/contracts/artifacts/address.json'
 import M from 'axios'
 import _ from 'crypto-js/sha256'
@@ -1969,39 +1969,39 @@ function X(t, e) {
   }
   return r && r.then ? r.then(void 0, e) : r
 }
-var Y = /*#__PURE__*/ (function (e) {
-    function r(t, r) {
+var Y = /*#__PURE__*/ (function (t) {
+    function e(e, r) {
       var n
       return (
-        void 0 === t && (t = '0x0'),
-        ((n = e.call(this) || this).id = void 0),
+        void 0 === e && (e = '0x0'),
+        ((n = t.call(this) || this).id = void 0),
         (n.password = void 0),
         (n.token = void 0),
-        (n.id = t),
+        (n.id = e),
         r && n.setInstanceConfig(r),
         n
       )
     }
-    T(r, e)
-    var n = r.prototype
+    T(e, t)
+    var r = e.prototype
     return (
-      (n.getId = function () {
+      (r.getId = function () {
         return this.id
       }),
-      (n.setId = function (t) {
+      (r.setId = function (t) {
         this.id = t
       }),
-      (n.setPassword = function (t) {
+      (r.setPassword = function (t) {
         this.password = t
       }),
-      (n.getPassword = function () {
+      (r.getPassword = function () {
         return this.password
       }),
-      (n.getTokenBalance = function (e) {
+      (r.getTokenBalance = function (t) {
         try {
-          var r = this
-          if (null === e) return Promise.resolve(null)
-          var n = [
+          var e = this
+          if (null === t) return Promise.resolve(null)
+          var r = [
               {
                 constant: !0,
                 inputs: [{ name: '_owner', type: 'address' }],
@@ -2013,18 +2013,18 @@ var Y = /*#__PURE__*/ (function (e) {
               }
             ],
             i = null
-          return Promise.resolve(r.getTokenDecimals(e)).then(function (o) {
+          return Promise.resolve(e.getTokenDecimals(t)).then(function (o) {
             var s = X(
               function () {
-                var s = new r.web3.eth.Contract(n, e, { from: r.id })
-                return Promise.resolve(s.methods.balanceOf(r.id).call()).then(
-                  function (e) {
-                    i = new t(e).div(Math.pow(10, o)).toString()
+                var s = new e.web3.eth.Contract(r, t, { from: e.id })
+                return Promise.resolve(s.methods.balanceOf(e.id).call()).then(
+                  function (t) {
+                    i = new n(t).div(Math.pow(10, o)).toString()
                   }
                 )
               },
               function (t) {
-                r.logger.error('ERROR: Failed to get the balance: ' + t.message)
+                e.logger.error('ERROR: Failed to get the balance: ' + t.message)
               }
             )
             return s && s.then
@@ -2037,7 +2037,7 @@ var Y = /*#__PURE__*/ (function (e) {
           return Promise.reject(t)
         }
       }),
-      (n.getTokenDecimals = function (t) {
+      (r.getTokenDecimals = function (t) {
         try {
           var e = this,
             r = 18
@@ -2075,7 +2075,7 @@ var Y = /*#__PURE__*/ (function (e) {
           return Promise.reject(t)
         }
       }),
-      (n.getOceanBalance = function () {
+      (r.getOceanBalance = function () {
         try {
           return Promise.resolve(
             this.getTokenBalance(this.config.oceanTokenAddress)
@@ -2084,10 +2084,10 @@ var Y = /*#__PURE__*/ (function (e) {
           return Promise.reject(t)
         }
       }),
-      (n.getTokenSymbol = function (t) {
+      (r.getTokenSymbol = function (t) {
         return Promise.resolve('')
       }),
-      (n.getEtherBalance = function () {
+      (r.getEtherBalance = function () {
         try {
           var t = this
           return Promise.resolve(t.web3.eth.getBalance(t.id, 'latest')).then(
@@ -2099,7 +2099,7 @@ var Y = /*#__PURE__*/ (function (e) {
           return Promise.reject(t)
         }
       }),
-      r
+      e
     )
   })($),
   Q = /*#__PURE__*/ (function () {
@@ -2174,10 +2174,10 @@ var Y = /*#__PURE__*/ (function (e) {
       (t.getWeb3 = function (t) {
         return (
           void 0 === t && (t = {}),
-          new e(
+          new i(
             t.web3Provider ||
-              e.givenProvider ||
-              new e.providers.HttpProvider(t.nodeUri)
+              i.givenProvider ||
+              new i.providers.HttpProvider(t.nodeUri)
           )
         )
       }),
@@ -2279,7 +2279,7 @@ function nt(t) {
   if (!Number.isInteger(t))
     throw new TypeError('Expected an integer, got ' + typeof t)
   var e = new WeakMap(),
-    r = new i(),
+    r = new a(),
     n = setTimeout(function () {
       r.abort()
     }, t)
@@ -2356,32 +2356,32 @@ var it = /*#__PURE__*/ (function () {
             }
       )
     }),
-    (e.downloadFile = function (t, e, i) {
+    (e.downloadFile = function (t, e, r) {
       try {
-        return Promise.resolve(this.get(t)).then(function (o) {
-          if (!o.ok) throw new Error('Response error.')
-          var s
+        return Promise.resolve(this.get(t)).then(function (n) {
+          if (!n.ok) throw new Error('Response error.')
+          var i
           try {
-            s = o.headers
+            i = n.headers
               .get('content-disposition')
               .match(/attachment;filename=(.+)/)[1]
           } catch (e) {
             try {
-              s = t.split('/').pop()
+              i = t.split('/').pop()
             } catch (t) {
-              s = 'file' + i
+              i = 'file' + r
             }
           }
           return e
             ? Promise.resolve(
-                new Promise(function (t, n) {
+                new Promise(function (t, r) {
                   try {
-                    r.mkdirSync(e, { recursive: !0 })
-                    var i = r.createWriteStream('' + e + s)
+                    o.mkdirSync(e, { recursive: !0 })
+                    var s = o.createWriteStream('' + e + i)
                     return (
-                      o.body.pipe(i),
-                      o.body.on('error', n),
-                      i.on('finish', t),
+                      n.body.pipe(s),
+                      n.body.on('error', r),
+                      s.on('finish', t),
                       Promise.resolve()
                     )
                   } catch (t) {
@@ -2391,8 +2391,8 @@ var it = /*#__PURE__*/ (function () {
               ).then(function () {
                 return e
               })
-            : Promise.resolve(o.arrayBuffer()).then(function (t) {
-                n(t, s)
+            : Promise.resolve(n.arrayBuffer()).then(function (t) {
+                s(t, i)
               })
         })
       } catch (t) {
@@ -2410,7 +2410,7 @@ var it = /*#__PURE__*/ (function () {
     (e.fetch = function (t, e) {
       try {
         var r = this
-        return Promise.resolve(o(t, e)).then(function (n) {
+        return Promise.resolve(u(t, e)).then(function (n) {
           var i = (function () {
             if (!n.ok) {
               r.logger.error('Error requesting [' + e.method + '] ' + t)
@@ -3140,24 +3140,24 @@ var st = /*#__PURE__*/ (function (t) {
         try {
           var n = this,
             i = t.getId()
-          return Promise.resolve(n.getNonce(i)).then(function (s) {
-            function a() {
+          return Promise.resolve(n.getNonce(i)).then(function (o) {
+            function s() {
               var t = n.getEndpointURL('assetUrls')
                 ? n.getEndpointURL('encrypt').urlPath
                 : null
               null === t &&
                 (t = 'http://localhost:8030/api/v1/services/assetUrls')
-              var a = t
+              var s = t
               return (
-                (a += '?documentId=' + e),
-                (a += '&signature=' + u),
-                (a += '&serviceId=' + r),
-                (a += '&nonce=' + s),
-                (a += '&publisherAddress=' + i),
+                (s += '?documentId=' + e),
+                (s += '&signature=' + a),
+                (s += '&serviceId=' + r),
+                (s += '&nonce=' + o),
+                (s += '&publisherAddress=' + i),
                 ot(
                   function () {
                     return Promise.resolve(
-                      o(a, {
+                      u(s, {
                         method: 'GET',
                         headers: { 'Content-Type': 'application/json' }
                       })
@@ -3173,12 +3173,12 @@ var st = /*#__PURE__*/ (function (t) {
                 )
               )
             }
-            var u,
+            var a,
               h = ot(
                 function () {
-                  return Promise.resolve(n.createSignature(t, e + s)).then(
+                  return Promise.resolve(n.createSignature(t, e + o)).then(
                     function (t) {
-                      u = t
+                      a = t
                     }
                   )
                 },
@@ -3186,7 +3186,7 @@ var st = /*#__PURE__*/ (function (t) {
                   console.log('error', t)
                 }
               )
-            return h && h.then ? h.then(a) : a()
+            return h && h.then ? h.then(s) : s()
           })
         } catch (t) {
           return Promise.reject(t)
@@ -24158,7 +24158,7 @@ var xu = Eu,
       (e.sha512 = Au)
   }),
   Ru = jn.Buffer,
-  Iu = u.Transform,
+  Iu = r.Transform,
   Bu = Mo.StringDecoder
 function Ou(t) {
   Iu.call(this),
@@ -24371,8 +24371,8 @@ var Lu = function (t) {
       })
   }),
   Fu = Dn,
-  qu = z(function (t, e) {
-    var r =
+  qu = z(function (e, r) {
+    var n =
         (q && q.__read) ||
         function (t, e) {
           var r = 'function' == typeof Symbol && t[Symbol.iterator]
@@ -24395,30 +24395,30 @@ var Lu = function (t) {
           }
           return s
         },
-      n =
+      i =
         (q && q.__importDefault) ||
         function (t) {
           return t && t.__esModule ? t : { default: t }
         }
-    Object.defineProperty(e, '__esModule', { value: !0 }),
-      (e.isZeroAddress =
-        e.zeroAddress =
-        e.importPublic =
-        e.privateToAddress =
-        e.privateToPublic =
-        e.publicToAddress =
-        e.pubToAddress =
-        e.isValidPublic =
-        e.isValidPrivate =
-        e.generateAddress2 =
-        e.generateAddress =
-        e.isValidChecksumAddress =
-        e.toChecksumAddress =
-        e.isValidAddress =
-        e.Account =
+    Object.defineProperty(r, '__esModule', { value: !0 }),
+      (r.isZeroAddress =
+        r.zeroAddress =
+        r.importPublic =
+        r.privateToAddress =
+        r.privateToPublic =
+        r.publicToAddress =
+        r.pubToAddress =
+        r.isValidPublic =
+        r.isValidPrivate =
+        r.generateAddress2 =
+        r.generateAddress =
+        r.isValidChecksumAddress =
+        r.toChecksumAddress =
+        r.isValidAddress =
+        r.Account =
           void 0)
-    var i = n(a),
-      o = (function () {
+    var o = i(t),
+      s = (function () {
         function t(t, e, r, n) {
           void 0 === t && (t = new Ot.BN(0)),
             void 0 === e && (e = new Ot.BN(0)),
@@ -24450,11 +24450,11 @@ var Lu = function (t) {
             return this.fromValuesArray(e)
           }),
           (t.fromValuesArray = function (e) {
-            var n = r(e, 4),
-              i = n[1],
-              o = n[2],
-              s = n[3]
-            return new t(new Ot.BN(n[0]), new Ot.BN(i), o, s)
+            var r = n(e, 4),
+              i = r[1],
+              o = r[2],
+              s = r[3]
+            return new t(new Ot.BN(r[0]), new Ot.BN(i), o, s)
           }),
           (t.prototype._validate = function () {
             if (this.nonce.lt(new Ot.BN(0)))
@@ -24490,8 +24490,8 @@ var Lu = function (t) {
           t
         )
       })()
-    ;(e.Account = o),
-      (e.isValidAddress = function (t) {
+    ;(r.Account = s),
+      (r.isValidAddress = function (t) {
         try {
           ;(0, Fn.assertIsString)(t)
         } catch (t) {
@@ -24499,7 +24499,7 @@ var Lu = function (t) {
         }
         return /^0x[0-9a-fA-F]{40}$/.test(t)
       }),
-      (e.toChecksumAddress = function (t, e) {
+      (r.toChecksumAddress = function (t, e) {
         ;(0, Fn.assertIsHexString)(t)
         var r = (0, Un.stripHexPrefix)(t).toLowerCase(),
           n = ''
@@ -24514,23 +24514,23 @@ var Lu = function (t) {
           parseInt(i[s], 16) >= 8 ? (o += r[s].toUpperCase()) : (o += r[s])
         return o
       }),
-      (e.isValidChecksumAddress = function (t, r) {
-        return (0, e.isValidAddress)(t) && (0, e.toChecksumAddress)(t, r) === t
+      (r.isValidChecksumAddress = function (t, e) {
+        return (0, r.isValidAddress)(t) && (0, r.toChecksumAddress)(t, e) === t
       }),
-      (e.generateAddress = function (t, e) {
+      (r.generateAddress = function (t, e) {
         ;(0, Fn.assertIsBuffer)(t), (0, Fn.assertIsBuffer)(e)
         var r = new Ot.BN(e)
         return r.isZero()
           ? (0, Du.rlphash)([t, null]).slice(-20)
           : (0, Du.rlphash)([t, Buffer.from(r.toArray())]).slice(-20)
       }),
-      (e.generateAddress2 = function (t, e, r) {
+      (r.generateAddress2 = function (t, e, r) {
         return (
           (0, Fn.assertIsBuffer)(t),
           (0, Fn.assertIsBuffer)(e),
           (0, Fn.assertIsBuffer)(r),
-          (0, i.default)(20 === t.length),
-          (0, i.default)(32 === e.length),
+          (0, o.default)(20 === t.length),
+          (0, o.default)(32 === e.length),
           (0, Du.keccak256)(
             Buffer.concat([
               Buffer.from('ff', 'hex'),
@@ -24541,10 +24541,10 @@ var Lu = function (t) {
           ).slice(-20)
         )
       }),
-      (e.isValidPrivate = function (t) {
+      (r.isValidPrivate = function (t) {
         return (0, Fu.privateKeyVerify)(t)
       }),
-      (e.isValidPublic = function (t, e) {
+      (r.isValidPublic = function (t, e) {
         return (
           void 0 === e && (e = !1),
           (0, Fn.assertIsBuffer)(t),
@@ -24553,28 +24553,28 @@ var Lu = function (t) {
             : !!e && (0, Fu.publicKeyVerify)(t)
         )
       }),
-      (e.pubToAddress = function (t, e) {
+      (r.pubToAddress = function (t, e) {
         return (
           void 0 === e && (e = !1),
           (0, Fn.assertIsBuffer)(t),
           e &&
             64 !== t.length &&
             (t = Buffer.from((0, Fu.publicKeyConvert)(t, !1).slice(1))),
-          (0, i.default)(64 === t.length),
+          (0, o.default)(64 === t.length),
           (0, Du.keccak)(t).slice(-20)
         )
       }),
-      (e.publicToAddress = e.pubToAddress),
-      (e.privateToPublic = function (t) {
+      (r.publicToAddress = r.pubToAddress),
+      (r.privateToPublic = function (t) {
         return (
           (0, Fn.assertIsBuffer)(t),
           Buffer.from((0, Fu.publicKeyCreate)(t, !1)).slice(1)
         )
       }),
-      (e.privateToAddress = function (t) {
-        return (0, e.publicToAddress)((0, e.privateToPublic)(t))
+      (r.privateToAddress = function (t) {
+        return (0, r.publicToAddress)((0, r.privateToPublic)(t))
       }),
-      (e.importPublic = function (t) {
+      (r.importPublic = function (t) {
         return (
           (0, Fn.assertIsBuffer)(t),
           64 !== t.length &&
@@ -24582,30 +24582,30 @@ var Lu = function (t) {
           t
         )
       }),
-      (e.zeroAddress = function () {
+      (r.zeroAddress = function () {
         var t = (0, qn.zeros)(20)
         return (0, qn.bufferToHex)(t)
       }),
-      (e.isZeroAddress = function (t) {
+      (r.isZeroAddress = function (t) {
         try {
           ;(0, Fn.assertIsString)(t)
         } catch (t) {
           return !1
         }
-        return (0, e.zeroAddress)() === t
+        return (0, r.zeroAddress)() === t
       })
   }),
-  zu = z(function (t, e) {
-    var r =
+  zu = z(function (e, r) {
+    var n =
       (q && q.__importDefault) ||
       function (t) {
         return t && t.__esModule ? t : { default: t }
       }
-    Object.defineProperty(e, '__esModule', { value: !0 }), (e.Address = void 0)
-    var n = r(a),
-      i = (function () {
+    Object.defineProperty(r, '__esModule', { value: !0 }), (r.Address = void 0)
+    var i = n(t),
+      o = (function () {
         function t(t) {
-          ;(0, n.default)(20 === t.length, 'Invalid address length'),
+          ;(0, i.default)(20 === t.length, 'Invalid address length'),
             (this.buf = t)
         }
         return (
@@ -24614,19 +24614,19 @@ var Lu = function (t) {
           }),
           (t.fromString = function (e) {
             return (
-              (0, n.default)((0, qu.isValidAddress)(e), 'Invalid address'),
+              (0, i.default)((0, qu.isValidAddress)(e), 'Invalid address'),
               new t((0, qn.toBuffer)(e))
             )
           }),
           (t.fromPublicKey = function (e) {
             return (
-              (0, n.default)(Buffer.isBuffer(e), 'Public key should be Buffer'),
+              (0, i.default)(Buffer.isBuffer(e), 'Public key should be Buffer'),
               new t((0, qu.pubToAddress)(e))
             )
           }),
           (t.fromPrivateKey = function (e) {
             return (
-              (0, n.default)(
+              (0, i.default)(
                 Buffer.isBuffer(e),
                 'Private key should be Buffer'
               ),
@@ -24635,15 +24635,15 @@ var Lu = function (t) {
           }),
           (t.generate = function (e, r) {
             return (
-              (0, n.default)(Ot.BN.isBN(r)),
+              (0, i.default)(Ot.BN.isBN(r)),
               new t((0, qu.generateAddress)(e.buf, r.toArrayLike(Buffer)))
             )
           }),
-          (t.generate2 = function (e, r, i) {
+          (t.generate2 = function (e, r, n) {
             return (
-              (0, n.default)(Buffer.isBuffer(r)),
-              (0, n.default)(Buffer.isBuffer(i)),
-              new t((0, qu.generateAddress2)(e.buf, r, i))
+              (0, i.default)(Buffer.isBuffer(r)),
+              (0, i.default)(Buffer.isBuffer(n)),
+              new t((0, qu.generateAddress2)(e.buf, r, n))
             )
           }),
           (t.prototype.equals = function (t) {
@@ -24667,7 +24667,7 @@ var Lu = function (t) {
           t
         )
       })()
-    e.Address = i
+    r.Address = o
   }),
   Wu = z(function (t, e) {
     function r(t, e) {
@@ -24796,16 +24796,16 @@ var Lu = function (t) {
         return (0, Du.keccak)(Buffer.concat([e, t]))
       })
   }),
-  Hu = z(function (t, e) {
-    var r =
+  Hu = z(function (e, r) {
+    var n =
       (q && q.__importDefault) ||
       function (t) {
         return t && t.__esModule ? t : { default: t }
       }
-    Object.defineProperty(e, '__esModule', { value: !0 }),
-      (e.defineProperties = void 0)
-    var n = r(a)
-    e.defineProperties = function (t, e, r) {
+    Object.defineProperty(r, '__esModule', { value: !0 }),
+      (r.defineProperties = void 0)
+    var i = n(t)
+    r.defineProperties = function (t, e, r) {
       if (
         ((t.raw = []),
         (t._fields = []),
@@ -24825,36 +24825,36 @@ var Lu = function (t) {
           return Ot.rlp.encode(t.raw)
         }),
         e.forEach(function (e, r) {
-          function i() {
+          function n() {
             return t.raw[r]
           }
-          function o(i) {
-            '00' !== (i = (0, qn.toBuffer)(i)).toString('hex') ||
+          function o(n) {
+            '00' !== (n = (0, qn.toBuffer)(n)).toString('hex') ||
               e.allowZero ||
-              (i = Buffer.allocUnsafe(0)),
+              (n = Buffer.allocUnsafe(0)),
               e.allowLess && e.length
-                ? ((i = (0, qn.unpadBuffer)(i)),
-                  (0, n.default)(
-                    e.length >= i.length,
+                ? ((n = (0, qn.unpadBuffer)(n)),
+                  (0, i.default)(
+                    e.length >= n.length,
                     'The field '
                       .concat(e.name, ' must not have more ')
                       .concat(e.length, ' bytes')
                   ))
-                : (e.allowZero && 0 === i.length) ||
+                : (e.allowZero && 0 === n.length) ||
                   !e.length ||
-                  (0, n.default)(
-                    e.length === i.length,
+                  (0, i.default)(
+                    e.length === n.length,
                     'The field '
                       .concat(e.name, ' must have byte length of ')
                       .concat(e.length)
                   ),
-              (t.raw[r] = i)
+              (t.raw[r] = n)
           }
           t._fields.push(e.name),
             Object.defineProperty(t, e.name, {
               enumerable: !0,
               configurable: !0,
-              get: i,
+              get: n,
               set: o
             }),
             e.default && (t[e.name] = e.default),
@@ -24863,7 +24863,7 @@ var Lu = function (t) {
                 enumerable: !1,
                 configurable: !0,
                 set: o,
-                get: i
+                get: n
               })
         }),
         r)
@@ -24881,10 +24881,10 @@ var Lu = function (t) {
           })
         } else {
           if ('object' != typeof r) throw new Error('invalid data')
-          var i = Object.keys(r)
+          var n = Object.keys(r)
           e.forEach(function (e) {
-            ;-1 !== i.indexOf(e.name) && (t[e.name] = r[e.name]),
-              -1 !== i.indexOf(e.alias) && (t[e.alias] = r[e.alias])
+            ;-1 !== n.indexOf(e.name) && (t[e.name] = r[e.name]),
+              -1 !== n.indexOf(e.alias) && (t[e.alias] = r[e.alias])
           })
         }
     }
@@ -27807,10 +27807,10 @@ var Zh = /*#__PURE__*/ (function () {
                     i++
                   })
               }
-              var a = qh(
+              var s = qh(
                 function () {
                   return Promise.resolve(
-                    s(n.getURI() + '/api/v1/aquarius/assets/ddo/' + t)
+                    h(n.getURI() + '/api/v1/aquarius/assets/ddo/' + t)
                   ).then(function (t) {
                     var n = (function () {
                       if (t.ok) {
@@ -27829,7 +27829,7 @@ var Zh = /*#__PURE__*/ (function () {
                 },
                 function () {}
               )
-              return a && a.then ? a.then(o) : o()
+              return s && s.then ? s.then(o) : o()
             },
             function () {
               return !r && i < 100
@@ -27874,7 +27874,7 @@ var Vh = /*#__PURE__*/ (function () {
       (this.web3 = t),
       (this.config = o),
       (this.DDOContractAddress = r),
-      (this.DDOContractABI = n || h.abi),
+      (this.DDOContractABI = n || f.abi),
       t &&
         (this.DDOContract = Z(
           new this.web3.eth.Contract(
@@ -27890,8 +27890,8 @@ var Vh = /*#__PURE__*/ (function () {
   return (
     (e.compressDDO = function (t) {
       try {
-        f.disableEndMark = !0
-        var e = f.compress(t, 9)
+        l.disableEndMark = !0
+        var e = l.compress(t, 9)
         return Promise.resolve(e)
       } catch (t) {
         return Promise.reject(t)
@@ -28193,7 +28193,7 @@ var Xh = /*#__PURE__*/ (function () {
     )
   })(),
   Yh = /*#__PURE__*/ (function () {
-    function e(t, e, r, n, i, o) {
+    function t(t, e, r, n, i, o) {
       ;(this.GASLIMIT_DEFAULT = 1e6),
         (this.factoryAddress = void 0),
         (this.factoryABI = void 0),
@@ -28203,16 +28203,16 @@ var Xh = /*#__PURE__*/ (function () {
         (this.startBlock = void 0),
         (this.config = void 0),
         (this.factoryAddress = t),
-        (this.factoryABI = e || l.abi),
-        (this.datatokensABI = r || c.abi),
+        (this.factoryABI = e || c.abi),
+        (this.datatokensABI = r || d.abi),
         (this.web3 = n),
         (this.logger = i),
         (this.config = o),
         (this.startBlock = (o && o.startBlock) || 0)
     }
-    var r = e.prototype
+    var e = t.prototype
     return (
-      (r.generateDtName = function (t) {
+      (e.generateDtName = function (t) {
         var e = (function (t) {
           var e = t || J,
             r = Math.floor(Math.random() * e.adjectives.length),
@@ -28232,7 +28232,7 @@ var Xh = /*#__PURE__*/ (function () {
         })(t)
         return { name: e.name, symbol: e.symbol }
       }),
-      (r.create = function (t, e, r, n, i) {
+      (e.create = function (t, e, r, n, i) {
         try {
           var o = function () {
               var o = h.methods.createToken(t, n, i, s.web3.utils.toWei(r)),
@@ -28288,7 +28288,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.approve = function (t, e, r, n) {
+      (e.approve = function (t, e, r, n) {
         try {
           var i,
             o = function () {
@@ -28328,25 +28328,25 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.mint = function (e, r, n, i) {
+      (e.mint = function (t, e, r, i) {
         try {
           var o = this,
             s = Z(
-              new o.web3.eth.Contract(o.datatokensABI, e, { from: r }),
+              new o.web3.eth.Contract(o.datatokensABI, t, { from: e }),
               o.config
             )
-          return Promise.resolve(o.getCap(e)).then(function (e) {
-            if (new t(e).gte(n)) {
+          return Promise.resolve(o.getCap(t)).then(function (t) {
+            if (new n(t).gte(r)) {
               var a,
                 u = function () {
-                  var t = s.methods.mint(i || r, o.web3.utils.toWei(n)),
-                    e = t.send,
+                  var t = s.methods.mint(i || e, o.web3.utils.toWei(r)),
+                    n = t.send,
                     u = a + 1
                   return Promise.resolve(G(o.web3, o.config)).then(function (
-                    n
+                    r
                   ) {
                     return Promise.resolve(
-                      e.call(t, { from: r, gas: u, gasPrice: n })
+                      n.call(t, { from: e, gas: u, gasPrice: r })
                     )
                   })
                 },
@@ -28355,8 +28355,8 @@ var Xh = /*#__PURE__*/ (function () {
                   function () {
                     return Promise.resolve(
                       s.methods
-                        .mint(i || r, o.web3.utils.toWei(n))
-                        .estimateGas({ from: r }, function (t, e) {
+                        .mint(i || e, o.web3.utils.toWei(r))
+                        .estimateGas({ from: e }, function (t, e) {
                           return t ? h : e
                         })
                     ).then(function (t) {
@@ -28375,14 +28375,14 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.transfer = function (t, e, r, n) {
+      (e.transfer = function (t, e, r, n) {
         try {
           return Promise.resolve(this.transferToken(t, e, r, n))
         } catch (t) {
           return Promise.reject(t)
         }
       }),
-      (r.transferToken = function (t, e, r, n) {
+      (e.transferToken = function (t, e, r, n) {
         try {
           var i = this.web3.utils.toWei(r)
           return Promise.resolve(this.transferWei(t, e, i, n))
@@ -28390,7 +28390,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.transferWei = function (t, e, r, n) {
+      (e.transferWei = function (t, e, r, n) {
         try {
           var i,
             o = function () {
@@ -28430,7 +28430,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.transferFrom = function (t, e, r, n) {
+      (e.transferFrom = function (t, e, r, n) {
         try {
           var i,
             o = function () {
@@ -28470,7 +28470,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.balance = function (t, e) {
+      (e.balance = function (t, e) {
         try {
           var r = this,
             n = Z(
@@ -28486,7 +28486,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.allowance = function (t, e, r) {
+      (e.allowance = function (t, e, r) {
         try {
           var n = this,
             i = Z(
@@ -28502,7 +28502,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.getBlob = function (t) {
+      (e.getBlob = function (t) {
         try {
           var e = this,
             r = Z(new e.web3.eth.Contract(e.datatokensABI, t), e.config)
@@ -28511,7 +28511,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.getName = function (t) {
+      (e.getName = function (t) {
         try {
           var e = this,
             r = Z(new e.web3.eth.Contract(e.datatokensABI, t), e.config)
@@ -28520,7 +28520,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.getSymbol = function (t) {
+      (e.getSymbol = function (t) {
         try {
           var e = this,
             r = Z(new e.web3.eth.Contract(e.datatokensABI, t), e.config)
@@ -28529,7 +28529,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.getCap = function (t) {
+      (e.getCap = function (t) {
         try {
           var e = this,
             r = Z(new e.web3.eth.Contract(e.datatokensABI, t), e.config)
@@ -28540,13 +28540,13 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.toWei = function (t) {
+      (e.toWei = function (t) {
         return this.web3.utils.toWei(t)
       }),
-      (r.fromWei = function (t) {
+      (e.fromWei = function (t) {
         return this.web3.utils.fromWei(t)
       }),
-      (r.startOrder = function (t, e, r, n, i, o) {
+      (e.startOrder = function (t, e, r, n, i, o) {
         try {
           var s = this,
             a = Z(
@@ -28610,7 +28610,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.getPreviousValidOrders = function (t, e, r, n, i) {
+      (e.getPreviousValidOrders = function (t, e, r, n, i) {
         try {
           var o,
             s = function () {
@@ -28704,13 +28704,13 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.getStartOrderEventSignature = function () {
+      (e.getStartOrderEventSignature = function () {
         var t = this.datatokensABI.find(function (t) {
           if ('OrderStarted' === t.name && 'event' === t.type) return t
         })
         return this.web3.eth.abi.encodeEventSignature(t)
       }),
-      (r.proposeMinter = function (t, e, r) {
+      (e.proposeMinter = function (t, e, r) {
         try {
           var n,
             i = function () {
@@ -28759,7 +28759,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.approveMinter = function (t, e) {
+      (e.approveMinter = function (t, e) {
         try {
           var r,
             n = function () {
@@ -28808,7 +28808,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (r.isMinter = function (t, e) {
+      (e.isMinter = function (t, e) {
         try {
           var r = this,
             n = Z(new r.web3.eth.Contract(r.datatokensABI, t), r.config)
@@ -28817,7 +28817,7 @@ var Xh = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      e
+      t
     )
   })(),
   Qh = /*#__PURE__*/ (function (t) {
@@ -28834,7 +28834,7 @@ var Xh = /*#__PURE__*/ (function () {
         try {
           return Promise.resolve(
             this.web3.eth.net.getId().then(function (t) {
-              var e = d(t)
+              var e = p(t)
               return e && e.name ? e.name : 'Development'
             })
           )
@@ -29591,10 +29591,10 @@ var af = /*#__PURE__*/ (function (t) {
               i.attributes.main.files
               ? {
                   did: t,
-                  containerSectionChecksum: p(
+                  containerSectionChecksum: m(
                     JSON.stringify(i.attributes.main.algorithm.container)
                   ).toString(),
-                  filesChecksum: p(
+                  filesChecksum: m(
                     i.attributes.encryptedFiles +
                       JSON.stringify(i.attributes.main.files)
                   ).toString()
@@ -29716,7 +29716,7 @@ var hf = /*#__PURE__*/ (function () {
       (this.logger = void 0),
       (this.config = void 0),
       (this.web3 = t),
-      (this.factoryABI = r || v.abi),
+      (this.factoryABI = r || g.abi),
       n && (this.factoryAddress = n),
       (this.logger = e),
       (this.config = i)
@@ -29854,29 +29854,29 @@ var pf = /*#__PURE__*/ (function () {
 function mf(t) {
   return t instanceof pf && 1 & t.s
 }
-var vf = /*#__PURE__*/ (function (e) {
-  function r(t, r, n, i, o, s) {
+var vf = /*#__PURE__*/ (function (t) {
+  function e(e, r, n, i, o, s) {
     var a
     return (
       void 0 === n && (n = null),
       void 0 === i && (i = null),
       void 0 === o && (o = null),
-      ((a = e.call(this, t, r, n, o, s) || this).poolABI = void 0),
-      (a.poolABI = i || m.abi),
+      ((a = t.call(this, e, r, n, o, s) || this).poolABI = void 0),
+      (a.poolABI = i || v.abi),
       a
     )
   }
-  T(r, e)
-  var n = r.prototype
+  T(e, t)
+  var r = e.prototype
   return (
-    (n.createPool = function (t) {
+    (r.createPool = function (e) {
       try {
-        return Promise.resolve(e.prototype.createPool.call(this, t))
+        return Promise.resolve(t.prototype.createPool.call(this, e))
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.setup = function (t, e, r, n, i, o, s, a, u) {
+    (r.setup = function (t, e, r, n, i, o, s, a, u) {
       try {
         var h,
           f = function () {
@@ -29928,10 +29928,10 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.allowance = function (t, e, r) {
+    (r.allowance = function (t, e, r) {
       try {
         var n = this,
-          i = Z(new n.web3.eth.Contract(c.abi, t, { from: r }), n.config)
+          i = Z(new n.web3.eth.Contract(d.abi, t, { from: r }), n.config)
         return Promise.resolve(i.methods.allowance(e, r).call()).then(function (
           t
         ) {
@@ -29941,23 +29941,23 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.approve = function (e, r, n, i, o) {
+    (r.approve = function (t, e, r, i, o) {
       void 0 === o && (o = !1)
       try {
         var s,
-          a = function (t) {
-            if (s) return t
-            function r() {
-              var t = ff(
+          a = function (e) {
+            if (s) return e
+            function n() {
+              var e = ff(
                 function () {
-                  var t = h.methods.approve(n, i),
-                    r = t.send,
+                  var e = h.methods.approve(r, i),
+                    n = e.send,
                     s = o + 1
                   return Promise.resolve(G(u.web3, u.config)).then(function (
-                    n
+                    r
                   ) {
                     return Promise.resolve(
-                      r.call(t, { from: e, gas: s, gasPrice: n })
+                      n.call(e, { from: t, gas: s, gasPrice: r })
                     ).then(function (t) {
                       a = t
                     })
@@ -29970,8 +29970,8 @@ var vf = /*#__PURE__*/ (function (e) {
                   )
                 }
               )
-              return t && t.then
-                ? t.then(function () {
+              return e && e.then
+                ? e.then(function () {
                     return a
                   })
                 : a
@@ -29983,8 +29983,8 @@ var vf = /*#__PURE__*/ (function (e) {
                 function () {
                   return Promise.resolve(
                     h.methods
-                      .approve(n, i)
-                      .estimateGas({ from: e }, function (t, e) {
+                      .approve(r, i)
+                      .estimateGas({ from: t }, function (t, e) {
                         return t ? f : e
                       })
                   ).then(function (t) {
@@ -29995,7 +29995,7 @@ var vf = /*#__PURE__*/ (function (e) {
                   o = f
                 }
               )
-            return l && l.then ? l.then(r) : r()
+            return l && l.then ? l.then(n) : n()
           },
           u = this,
           h = Z(
@@ -30014,16 +30014,16 @@ var vf = /*#__PURE__*/ (function (e) {
                   type: 'function'
                 }
               ],
-              r,
-              { from: e }
+              e,
+              { from: t }
             ),
             u.config
           ),
           f = (function () {
             if (!o)
-              return Promise.resolve(u.allowance(r, e, n)).then(function (e) {
-                if (new t(u.web3.utils.toWei(e)).greaterThanOrEqualTo(i))
-                  return (s = 1), e
+              return Promise.resolve(u.allowance(e, t, r)).then(function (t) {
+                if (new n(u.web3.utils.toWei(t)).greaterThanOrEqualTo(i))
+                  return (s = 1), t
               })
           })()
         return Promise.resolve(f && f.then ? f.then(a) : a(f))
@@ -30031,7 +30031,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.sharesBalance = function (t, e) {
+    (r.sharesBalance = function (t, e) {
       try {
         var r = this,
           n = null,
@@ -30061,7 +30061,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.addToPool = function (t, e, r) {
+    (r.addToPool = function (t, e, r) {
       try {
         var n = this,
           i = Z(new n.web3.eth.Contract(n.poolABI, e, { from: t }), n.config)
@@ -30168,7 +30168,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.setSwapFee = function (t, e, r) {
+    (r.setSwapFee = function (t, e, r) {
       try {
         var n = this,
           i = Z(new n.web3.eth.Contract(n.poolABI, e, { from: t }), n.config),
@@ -30201,7 +30201,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.finalize = function (t, e) {
+    (r.finalize = function (t, e) {
       try {
         var r = this,
           n = Z(new r.web3.eth.Contract(r.poolABI, e, { from: t }), r.config),
@@ -30234,7 +30234,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getNumTokens = function (t) {
+    (r.getNumTokens = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30264,7 +30264,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getPoolSharesTotalSupply = function (t) {
+    (r.getPoolSharesTotalSupply = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30294,7 +30294,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getCurrentTokens = function (t) {
+    (r.getCurrentTokens = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30324,7 +30324,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getFinalTokens = function (t) {
+    (r.getFinalTokens = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30354,7 +30354,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getController = function (t) {
+    (r.getController = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30384,7 +30384,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.setController = function (t, e, r) {
+    (r.setController = function (t, e, r) {
       try {
         var n = this,
           i = Z(new n.web3.eth.Contract(n.poolABI, e, { from: t }), n.config),
@@ -30416,7 +30416,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.isBound = function (t, e) {
+    (r.isBound = function (t, e) {
       try {
         var r = this,
           n = Z(new r.web3.eth.Contract(r.poolABI, t), r.config),
@@ -30447,7 +30447,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getReserve = function (t, e) {
+    (r.getReserve = function (t, e) {
       try {
         var r = this,
           n = null,
@@ -30478,7 +30478,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.isFinalized = function (t) {
+    (r.isFinalized = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30508,7 +30508,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getSwapFee = function (t) {
+    (r.getSwapFee = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30536,7 +30536,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getNormalizedWeight = function (t, e) {
+    (r.getNormalizedWeight = function (t, e) {
       try {
         var r = this,
           n = Z(new r.web3.eth.Contract(r.poolABI, t), r.config),
@@ -30567,7 +30567,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getDenormalizedWeight = function (t, e) {
+    (r.getDenormalizedWeight = function (t, e) {
       try {
         var r = this,
           n = Z(new r.web3.eth.Contract(r.poolABI, t), r.config),
@@ -30597,7 +30597,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getTotalDenormalizedWeight = function (t) {
+    (r.getTotalDenormalizedWeight = function (t) {
       try {
         var e = this,
           r = Z(new e.web3.eth.Contract(e.poolABI, t), e.config),
@@ -30627,7 +30627,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.swapExactAmountIn = function (t, e, r, n, i, o, s) {
+    (r.swapExactAmountIn = function (t, e, r, n, i, o, s) {
       try {
         var a,
           u = function () {
@@ -30695,7 +30695,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.swapExactAmountOut = function (t, e, r, n, i, o, s) {
+    (r.swapExactAmountOut = function (t, e, r, n, i, o, s) {
       try {
         var a,
           u = function () {
@@ -30763,7 +30763,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.joinPool = function (t, e, r, n) {
+    (r.joinPool = function (t, e, r, n) {
       try {
         for (
           var i,
@@ -30825,7 +30825,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.exitPool = function (t, e, r, n) {
+    (r.exitPool = function (t, e, r, n) {
       try {
         for (
           var i,
@@ -30887,7 +30887,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.joinswapExternAmountIn = function (t, e, r, n, i) {
+    (r.joinswapExternAmountIn = function (t, e, r, n, i) {
       try {
         var o,
           s = function () {
@@ -30950,7 +30950,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.joinswapPoolAmountOut = function (t, e, r, n, i) {
+    (r.joinswapPoolAmountOut = function (t, e, r, n, i) {
       try {
         var o,
           s = function () {
@@ -31010,7 +31010,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.exitswapPoolAmountIn = function (t, e, r, n, i) {
+    (r.exitswapPoolAmountIn = function (t, e, r, n, i) {
       try {
         var o,
           s = function () {
@@ -31072,7 +31072,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.exitswapExternAmountOut = function (t, e, r, n, i) {
+    (r.exitswapExternAmountOut = function (t, e, r, n, i) {
       try {
         var o,
           s = function () {
@@ -31132,7 +31132,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getSpotPrice = function (t, e, r) {
+    (r.getSpotPrice = function (t, e, r) {
       try {
         var n = this,
           i = Z(new n.web3.eth.Contract(n.poolABI, t), n.config),
@@ -31162,7 +31162,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getSpotPriceSansFee = function (t, e, r) {
+    (r.getSpotPriceSansFee = function (t, e, r) {
       try {
         var n = this,
           i = Z(new n.web3.eth.Contract(n.poolABI, t), n.config),
@@ -31190,7 +31190,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcSpotPrice = function (t, e, r, n, i, o) {
+    (r.calcSpotPrice = function (t, e, r, n, i, o) {
       try {
         var s = this,
           a = Z(new s.web3.eth.Contract(s.poolABI, t), s.config),
@@ -31226,19 +31226,19 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcInGivenOut = function (e, r, n, i, o, s, a) {
+    (r.calcInGivenOut = function (t, e, r, i, o, s, a) {
       try {
         var u = this,
-          h = Z(new u.web3.eth.Contract(u.poolABI, e), u.config),
+          h = Z(new u.web3.eth.Contract(u.poolABI, t), u.config),
           f = null
-        if (new t(s).gte(i)) return Promise.resolve(null)
+        if (new n(s).gte(i)) return Promise.resolve(null)
         var l = ff(
           function () {
             return Promise.resolve(
               h.methods
                 .calcInGivenOut(
+                  u.web3.utils.toWei(e),
                   u.web3.utils.toWei(r),
-                  u.web3.utils.toWei(n),
                   u.web3.utils.toWei(i),
                   u.web3.utils.toWei(o),
                   u.web3.utils.toWei(s),
@@ -31264,7 +31264,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcOutGivenIn = function (t, e, r, n, i, o, s) {
+    (r.calcOutGivenIn = function (t, e, r, n, i, o, s) {
       try {
         var a = this,
           u = Z(new a.web3.eth.Contract(a.poolABI, t), a.config),
@@ -31301,7 +31301,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcPoolOutGivenSingleIn = function (t, e, r, n, i, o, s) {
+    (r.calcPoolOutGivenSingleIn = function (t, e, r, n, i, o, s) {
       try {
         var a = this,
           u = Z(new a.web3.eth.Contract(a.poolABI, t), a.config),
@@ -31340,7 +31340,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcSingleInGivenPoolOut = function (t, e, r, n, i, o, s) {
+    (r.calcSingleInGivenPoolOut = function (t, e, r, n, i, o, s) {
       try {
         var a = this,
           u = Z(new a.web3.eth.Contract(a.poolABI, t), a.config),
@@ -31379,7 +31379,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcSingleOutGivenPoolIn = function (t, e, r, n, i, o, s) {
+    (r.calcSingleOutGivenPoolIn = function (t, e, r, n, i, o, s) {
       try {
         var a = this,
           u = Z(new a.web3.eth.Contract(a.poolABI, t), a.config),
@@ -31418,7 +31418,7 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcPoolInGivenSingleOut = function (t, e, r, n, i, o, s) {
+    (r.calcPoolInGivenSingleOut = function (t, e, r, n, i, o, s) {
       try {
         var a = this,
           u = Z(new a.web3.eth.Contract(a.poolABI, t), a.config),
@@ -31457,25 +31457,25 @@ var vf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getSwapEventSignature = function () {
+    (r.getSwapEventSignature = function () {
       var t = this.poolABI.find(function (t) {
         if ('LOG_SWAP' === t.name && 'event' === t.type) return t
       })
       return this.web3.eth.abi.encodeEventSignature(t)
     }),
-    (n.getJoinEventSignature = function () {
+    (r.getJoinEventSignature = function () {
       var t = this.poolABI.find(function (t) {
         if ('LOG_JOIN' === t.name && 'event' === t.type) return t
       })
       return this.web3.eth.abi.encodeEventSignature(t)
     }),
-    (n.getExitEventSignature = function () {
+    (r.getExitEventSignature = function () {
       var t = this.poolABI.find(function (t) {
         if ('LOG_EXIT' === t.name && 'event' === t.type) return t
       })
       return this.web3.eth.abi.encodeEventSignature(t)
     }),
-    r
+    e
   )
 })(hf)
 function gf(t, e, r) {
@@ -31557,15 +31557,15 @@ function wf(t, e, r) {
     (t[(t.ApprovingOcean = 2)] = 'ApprovingOcean'),
     (t[(t.SetupPool = 3)] = 'SetupPool')
 })(yf || (yf = {}))
-var Mf = /*#__PURE__*/ (function (e) {
-  function r(t, r, n, i, o, s, a) {
+var Mf = /*#__PURE__*/ (function (t) {
+  function e(e, r, n, i, o, s, a) {
     var u
     return (
       void 0 === n && (n = null),
       void 0 === i && (i = null),
       void 0 === o && (o = null),
       void 0 === s && (s = null),
-      ((u = e.call(this, t, r, n, i, o, a) || this).oceanAddress = null),
+      ((u = t.call(this, e, r, n, i, o, a) || this).oceanAddress = null),
       (u.dtAddress = null),
       (u.startBlock = void 0),
       s && (u.oceanAddress = s),
@@ -31573,10 +31573,10 @@ var Mf = /*#__PURE__*/ (function (e) {
       u
     )
   }
-  T(r, e)
-  var n = r.prototype
+  T(e, t)
+  var r = e.prototype
   return (
-    (n.create = function (t, r, n, i, o, s) {
+    (r.create = function (e, r, n, i, o, s) {
       var a = this
       if (null == this.oceanAddress)
         throw (
@@ -31606,7 +31606,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         try {
           return (
             u.next(yf.CreatingPool),
-            Promise.resolve(e.prototype.createPool.call(a, t)).then(function (
+            Promise.resolve(t.prototype.createPool.call(a, e)).then(function (
               h
             ) {
               if (!h)
@@ -31620,7 +31620,7 @@ var Mf = /*#__PURE__*/ (function (e) {
                 (a.dtAddress = r),
                 u.next(yf.ApprovingDatatoken),
                 Promise.resolve(
-                  a.approve(t, r, f, a.web3.utils.toWei(String(n)))
+                  a.approve(e, r, f, a.web3.utils.toWei(String(n)))
                 ).then(function (c) {
                   if (!c)
                     throw (
@@ -31631,7 +31631,7 @@ var Mf = /*#__PURE__*/ (function (e) {
                     u.next(yf.ApprovingOcean),
                     Promise.resolve(
                       a.approve(
-                        t,
+                        e,
                         a.oceanAddress,
                         f,
                         a.web3.utils.toWei(String(o))
@@ -31649,9 +31649,9 @@ var Mf = /*#__PURE__*/ (function (e) {
                       return (
                         u.next(yf.SetupPool),
                         Promise.resolve(
-                          e.prototype.setup.call(
+                          t.prototype.setup.call(
                             a,
-                            t,
+                            e,
                             f,
                             r,
                             a.web3.utils.toWei(String(n)),
@@ -31683,7 +31683,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         }
       })
     }),
-    (n.getDTAddress = function (t) {
+    (r.getDTAddress = function (t) {
       try {
         var e = this
         return (
@@ -31701,46 +31701,46 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getOceanReserve = function (t) {
+    (r.getOceanReserve = function (e) {
       try {
         var r = this
         return null == r.oceanAddress
           ? (r.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
-          : Promise.resolve(e.prototype.getReserve.call(r, t, r.oceanAddress))
+          : Promise.resolve(t.prototype.getReserve.call(r, e, r.oceanAddress))
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTReserve = function (t) {
+    (r.getDTReserve = function (e) {
       try {
         var r = this
-        return Promise.resolve(r.getDTAddress(t)).then(function (n) {
-          return e.prototype.getReserve.call(r, t, n)
+        return Promise.resolve(r.getDTAddress(e)).then(function (n) {
+          return t.prototype.getReserve.call(r, e, n)
         })
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getMaxBuyQuantity = function (r, n) {
+    (r.getMaxBuyQuantity = function (e, r) {
       try {
-        return Promise.resolve(e.prototype.getReserve.call(this, r, n)).then(
-          function (e) {
-            return new t(e).div(3).toString()
+        return Promise.resolve(t.prototype.getReserve.call(this, e, r)).then(
+          function (t) {
+            return new n(t).div(3).toString()
           }
         )
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getOceanMaxBuyQuantity = function (t) {
+    (r.getOceanMaxBuyQuantity = function (t) {
       try {
         return Promise.resolve(this.getMaxBuyQuantity(t, this.oceanAddress))
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTMaxBuyQuantity = function (t) {
+    (r.getDTMaxBuyQuantity = function (t) {
       try {
         var e = this,
           r = e.getMaxBuyQuantity
@@ -31751,22 +31751,22 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcInGivenOut = function (t, r, n, i) {
+    (r.calcInGivenOut = function (e, r, n, i) {
       try {
         var o = this,
-          s = e.prototype.calcInGivenOut
-        return Promise.resolve(e.prototype.getReserve.call(o, t, r)).then(
+          s = t.prototype.calcInGivenOut
+        return Promise.resolve(t.prototype.getReserve.call(o, e, r)).then(
           function (a) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(o, t, r)
+              t.prototype.getDenormalizedWeight.call(o, e, r)
             ).then(function (r) {
-              return Promise.resolve(e.prototype.getReserve.call(o, t, n)).then(
+              return Promise.resolve(t.prototype.getReserve.call(o, e, n)).then(
                 function (u) {
                   return Promise.resolve(
-                    e.prototype.getDenormalizedWeight.call(o, t, n)
-                  ).then(function (e) {
-                    return Promise.resolve(o.getSwapFee(t)).then(function (n) {
-                      return Promise.resolve(s.call(o, t, a, r, u, e, i, n))
+                    t.prototype.getDenormalizedWeight.call(o, e, n)
+                  ).then(function (t) {
+                    return Promise.resolve(o.getSwapFee(e)).then(function (n) {
+                      return Promise.resolve(s.call(o, e, a, r, u, t, i, n))
                     })
                   })
                 }
@@ -31778,24 +31778,24 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcOutGivenIn = function (t, r, n, i) {
+    (r.calcOutGivenIn = function (e, r, n, i) {
       try {
         var o = this,
-          s = e.prototype.calcOutGivenIn
-        return Promise.resolve(e.prototype.getReserve.call(o, t, r)).then(
+          s = t.prototype.calcOutGivenIn
+        return Promise.resolve(t.prototype.getReserve.call(o, e, r)).then(
           function (a) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(o, t, r)
+              t.prototype.getDenormalizedWeight.call(o, e, r)
             ).then(function (r) {
-              return Promise.resolve(e.prototype.getReserve.call(o, t, n)).then(
+              return Promise.resolve(t.prototype.getReserve.call(o, e, n)).then(
                 function (u) {
                   return Promise.resolve(
-                    e.prototype.getDenormalizedWeight.call(o, t, n)
+                    t.prototype.getDenormalizedWeight.call(o, e, n)
                   ).then(function (n) {
                     return Promise.resolve(
-                      e.prototype.getSwapFee.call(o, t)
-                    ).then(function (e) {
-                      return Promise.resolve(s.call(o, t, a, r, u, n, i, e))
+                      t.prototype.getSwapFee.call(o, e)
+                    ).then(function (t) {
+                      return Promise.resolve(s.call(o, e, a, r, u, n, i, t))
                     })
                   })
                 }
@@ -31807,25 +31807,25 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcPoolOutGivenSingleIn = function (t, r, n) {
+    (r.calcPoolOutGivenSingleIn = function (e, r, n) {
       try {
         var i = this,
-          o = e.prototype.calcPoolOutGivenSingleIn
-        return Promise.resolve(e.prototype.getReserve.call(i, t, r)).then(
+          o = t.prototype.calcPoolOutGivenSingleIn
+        return Promise.resolve(t.prototype.getReserve.call(i, e, r)).then(
           function (s) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(i, t, r)
+              t.prototype.getDenormalizedWeight.call(i, e, r)
             ).then(function (r) {
               return Promise.resolve(
-                e.prototype.getPoolSharesTotalSupply.call(i, t)
+                t.prototype.getPoolSharesTotalSupply.call(i, e)
               ).then(function (a) {
                 return Promise.resolve(
-                  e.prototype.getTotalDenormalizedWeight.call(i, t)
+                  t.prototype.getTotalDenormalizedWeight.call(i, e)
                 ).then(function (u) {
                   return Promise.resolve(
-                    e.prototype.getSwapFee.call(i, t)
-                  ).then(function (e) {
-                    return o.call(i, t, s, r, a, u, n, e)
+                    t.prototype.getSwapFee.call(i, e)
+                  ).then(function (t) {
+                    return o.call(i, e, s, r, a, u, n, t)
                   })
                 })
               })
@@ -31836,25 +31836,25 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcSingleInGivenPoolOut = function (t, r, n) {
+    (r.calcSingleInGivenPoolOut = function (e, r, n) {
       try {
         var i = this,
-          o = e.prototype.calcSingleInGivenPoolOut
-        return Promise.resolve(e.prototype.getReserve.call(i, t, r)).then(
+          o = t.prototype.calcSingleInGivenPoolOut
+        return Promise.resolve(t.prototype.getReserve.call(i, e, r)).then(
           function (s) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(i, t, r)
+              t.prototype.getDenormalizedWeight.call(i, e, r)
             ).then(function (r) {
               return Promise.resolve(
-                e.prototype.getPoolSharesTotalSupply.call(i, t)
+                t.prototype.getPoolSharesTotalSupply.call(i, e)
               ).then(function (a) {
                 return Promise.resolve(
-                  e.prototype.getTotalDenormalizedWeight.call(i, t)
+                  t.prototype.getTotalDenormalizedWeight.call(i, e)
                 ).then(function (u) {
                   return Promise.resolve(
-                    e.prototype.getSwapFee.call(i, t)
-                  ).then(function (e) {
-                    return o.call(i, t, s, r, a, u, n, e)
+                    t.prototype.getSwapFee.call(i, e)
+                  ).then(function (t) {
+                    return o.call(i, e, s, r, a, u, n, t)
                   })
                 })
               })
@@ -31865,25 +31865,25 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcSingleOutGivenPoolIn = function (t, r, n) {
+    (r.calcSingleOutGivenPoolIn = function (e, r, n) {
       try {
         var i = this,
-          o = e.prototype.calcSingleOutGivenPoolIn
-        return Promise.resolve(e.prototype.getReserve.call(i, t, r)).then(
+          o = t.prototype.calcSingleOutGivenPoolIn
+        return Promise.resolve(t.prototype.getReserve.call(i, e, r)).then(
           function (s) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(i, t, r)
+              t.prototype.getDenormalizedWeight.call(i, e, r)
             ).then(function (r) {
               return Promise.resolve(
-                e.prototype.getPoolSharesTotalSupply.call(i, t)
+                t.prototype.getPoolSharesTotalSupply.call(i, e)
               ).then(function (a) {
                 return Promise.resolve(
-                  e.prototype.getTotalDenormalizedWeight.call(i, t)
+                  t.prototype.getTotalDenormalizedWeight.call(i, e)
                 ).then(function (u) {
                   return Promise.resolve(
-                    e.prototype.getSwapFee.call(i, t)
-                  ).then(function (e) {
-                    return o.call(i, t, s, r, a, u, n, e)
+                    t.prototype.getSwapFee.call(i, e)
+                  ).then(function (t) {
+                    return o.call(i, e, s, r, a, u, n, t)
                   })
                 })
               })
@@ -31894,25 +31894,25 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.calcPoolInGivenSingleOut = function (t, r, n) {
+    (r.calcPoolInGivenSingleOut = function (e, r, n) {
       try {
         var i = this,
-          o = e.prototype.calcPoolInGivenSingleOut
-        return Promise.resolve(e.prototype.getReserve.call(i, t, r)).then(
+          o = t.prototype.calcPoolInGivenSingleOut
+        return Promise.resolve(t.prototype.getReserve.call(i, e, r)).then(
           function (s) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(i, t, r)
+              t.prototype.getDenormalizedWeight.call(i, e, r)
             ).then(function (r) {
               return Promise.resolve(
-                e.prototype.getPoolSharesTotalSupply.call(i, t)
+                t.prototype.getPoolSharesTotalSupply.call(i, e)
               ).then(function (a) {
                 return Promise.resolve(
-                  e.prototype.getTotalDenormalizedWeight.call(i, t)
+                  t.prototype.getTotalDenormalizedWeight.call(i, e)
                 ).then(function (u) {
                   return Promise.resolve(
-                    e.prototype.getSwapFee.call(i, t)
-                  ).then(function (e) {
-                    return o.call(i, t, s, r, a, u, n, e)
+                    t.prototype.getSwapFee.call(i, e)
+                  ).then(function (t) {
+                    return o.call(i, e, s, r, a, u, n, t)
                   })
                 })
               })
@@ -31923,7 +31923,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getPoolSharesRequiredToRemoveDT = function (t, e) {
+    (r.getPoolSharesRequiredToRemoveDT = function (t, e) {
       try {
         var r = this
         return Promise.resolve(r.getDTAddress(t)).then(function (n) {
@@ -31933,7 +31933,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTRemovedforPoolShares = function (t, e) {
+    (r.getDTRemovedforPoolShares = function (t, e) {
       try {
         var r = this
         return Promise.resolve(r.getDTAddress(t)).then(function (n) {
@@ -31943,7 +31943,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getPoolSharesRequiredToRemoveOcean = function (t, e) {
+    (r.getPoolSharesRequiredToRemoveOcean = function (t, e) {
       try {
         return Promise.resolve(
           this.calcPoolInGivenSingleOut(t, this.oceanAddress, e)
@@ -31952,7 +31952,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getOceanRemovedforPoolShares = function (t, e) {
+    (r.getOceanRemovedforPoolShares = function (t, e) {
       try {
         return Promise.resolve(
           this.calcSingleOutGivenPoolIn(t, this.oceanAddress, e)
@@ -31961,21 +31961,21 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getTokensRemovedforPoolShares = function (e, r) {
+    (r.getTokensRemovedforPoolShares = function (t, e) {
       try {
-        var n = this
+        var r = this
         return Promise.resolve(
           (function (i, o) {
             try {
-              var s = Promise.resolve(n.getPoolSharesTotalSupply(e)).then(
+              var s = Promise.resolve(r.getPoolSharesTotalSupply(t)).then(
                 function (i) {
-                  return Promise.resolve(n.getDTReserve(e)).then(function (o) {
-                    return Promise.resolve(n.getOceanReserve(e)).then(function (
-                      e
+                  return Promise.resolve(r.getDTReserve(t)).then(function (o) {
+                    return Promise.resolve(r.getOceanReserve(t)).then(function (
+                      t
                     ) {
                       return {
-                        dtAmount: new t(r).div(i).mul(o).toString(),
-                        oceanAmount: new t(r).div(i).mul(e).toString()
+                        dtAmount: new n(e).div(i).mul(o).toString(),
+                        oceanAmount: new n(e).div(i).mul(t).toString()
                       }
                     })
                   })
@@ -31986,14 +31986,14 @@ var Mf = /*#__PURE__*/ (function (e) {
             }
             return s && s.then ? s.then(void 0, o) : s
           })(0, function (t) {
-            n.logger.error('ERROR: Unable to get token info. ' + t.message)
+            r.logger.error('ERROR: Unable to get token info. ' + t.message)
           })
         )
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTMaxAddLiquidity = function (t) {
+    (r.getDTMaxAddLiquidity = function (t) {
       try {
         var e = this
         return Promise.resolve(e.getDTAddress(t)).then(function (r) {
@@ -32003,36 +32003,36 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getOceanMaxAddLiquidity = function (t) {
+    (r.getOceanMaxAddLiquidity = function (t) {
       try {
         return Promise.resolve(this.getMaxAddLiquidity(t, this.oceanAddress))
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getMaxAddLiquidity = function (r, n) {
+    (r.getMaxAddLiquidity = function (e, r) {
       try {
-        return Promise.resolve(e.prototype.getReserve.call(this, r, n)).then(
-          function (e) {
-            return parseFloat(e) > 0 ? new t(e).mul(0.25).toString() : '0'
+        return Promise.resolve(t.prototype.getReserve.call(this, e, r)).then(
+          function (t) {
+            return parseFloat(t) > 0 ? new n(t).mul(0.25).toString() : '0'
           }
         )
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getMaxRemoveLiquidity = function (r, n) {
+    (r.getMaxRemoveLiquidity = function (e, r) {
       try {
-        return Promise.resolve(e.prototype.getReserve.call(this, r, n)).then(
-          function (e) {
-            return parseFloat(e) > 0 ? new t(e).mul(0.25).toString() : '0'
+        return Promise.resolve(t.prototype.getReserve.call(this, e, r)).then(
+          function (t) {
+            return parseFloat(t) > 0 ? new n(t).mul(0.25).toString() : '0'
           }
         )
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTMaxRemoveLiquidity = function (t) {
+    (r.getDTMaxRemoveLiquidity = function (t) {
       try {
         var e = this
         return Promise.resolve(e.getDTAddress(t)).then(function (r) {
@@ -32042,23 +32042,23 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getOceanMaxRemoveLiquidity = function (t) {
+    (r.getOceanMaxRemoveLiquidity = function (t) {
       try {
         return Promise.resolve(this.getMaxRemoveLiquidity(t, this.oceanAddress))
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.buyDT = function (r, n, i, o, s) {
+    (r.buyDT = function (e, r, i, o, s) {
       try {
         var a = this
         return null == a.oceanAddress
           ? (a.logger.error('ERROR: undefined ocean token contract address'),
             Promise.resolve(null))
-          : Promise.resolve(a.getDTAddress(n)).then(function (u) {
-              var h = new t(i),
+          : Promise.resolve(a.getDTAddress(r)).then(function (u) {
+              var h = new n(i),
                 f = h.greaterThan
-              return Promise.resolve(a.getDTMaxBuyQuantity(n)).then(function (
+              return Promise.resolve(a.getDTMaxBuyQuantity(r)).then(function (
                 l
               ) {
                 return f.call(h, l)
@@ -32066,20 +32066,20 @@ var Mf = /*#__PURE__*/ (function (e) {
                       'ERROR: Buy quantity exceeds quantity allowed'
                     ),
                     null)
-                  : Promise.resolve(a.getOceanNeeded(n, i)).then(function (h) {
-                      return new t(h).greaterThan(o)
+                  : Promise.resolve(a.getOceanNeeded(r, i)).then(function (h) {
+                      return new n(h).greaterThan(o)
                         ? (a.logger.error('ERROR: Not enough Ocean Tokens'),
                           null)
                         : Promise.resolve(
-                            e.prototype.approve.call(
+                            t.prototype.approve.call(
                               a,
-                              r,
+                              e,
                               a.oceanAddress,
-                              n,
+                              r,
                               a.web3.utils.toWei(o)
                             )
-                          ).then(function (t) {
-                            if (!t)
+                          ).then(function (n) {
+                            if (!n)
                               throw (
                                 (a.logger.error(
                                   'ERROR: Failed to call approve OCEAN token'
@@ -32089,10 +32089,10 @@ var Mf = /*#__PURE__*/ (function (e) {
                                 ))
                               )
                             return Promise.resolve(
-                              e.prototype.swapExactAmountOut.call(
+                              t.prototype.swapExactAmountOut.call(
                                 a,
+                                e,
                                 r,
-                                n,
                                 a.oceanAddress,
                                 o,
                                 u,
@@ -32108,16 +32108,16 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.buyDTWithExactOcean = function (r, n, i, o, s) {
+    (r.buyDTWithExactOcean = function (e, r, i, o, s) {
       try {
         var a = this
         return null == a.oceanAddress
           ? (a.logger.error('ERROR: undefined ocean token contract address'),
             Promise.resolve(null))
-          : Promise.resolve(a.getDTAddress(n)).then(function (u) {
-              var h = new t(i),
+          : Promise.resolve(a.getDTAddress(r)).then(function (u) {
+              var h = new n(i),
                 f = h.greaterThan
-              return Promise.resolve(a.getDTMaxBuyQuantity(n)).then(function (
+              return Promise.resolve(a.getDTMaxBuyQuantity(r)).then(function (
                 l
               ) {
                 return f.call(h, l)
@@ -32125,20 +32125,20 @@ var Mf = /*#__PURE__*/ (function (e) {
                       'ERROR: Buy quantity exceeds quantity allowed'
                     ),
                     null)
-                  : Promise.resolve(a.getOceanNeeded(n, i)).then(function (h) {
-                      return new t(h).greaterThan(o)
+                  : Promise.resolve(a.getOceanNeeded(r, i)).then(function (h) {
+                      return new n(h).greaterThan(o)
                         ? (a.logger.error('ERROR: Not enough Ocean Tokens'),
                           null)
                         : Promise.resolve(
-                            e.prototype.approve.call(
+                            t.prototype.approve.call(
                               a,
-                              r,
+                              e,
                               a.oceanAddress,
-                              n,
+                              r,
                               a.web3.utils.toWei(o)
                             )
-                          ).then(function (t) {
-                            if (!t)
+                          ).then(function (n) {
+                            if (!n)
                               throw (
                                 (a.logger.error(
                                   'ERROR: Failed to call approve OCEAN token'
@@ -32148,10 +32148,10 @@ var Mf = /*#__PURE__*/ (function (e) {
                                 ))
                               )
                             return Promise.resolve(
-                              e.prototype.swapExactAmountIn.call(
+                              t.prototype.swapExactAmountIn.call(
                                 a,
+                                e,
                                 r,
-                                n,
                                 a.oceanAddress,
                                 o,
                                 u,
@@ -32167,38 +32167,38 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.sellDT = function (r, n, i, o, s) {
+    (r.sellDT = function (e, r, i, o, s) {
       try {
         var a = this
         return null == a.oceanAddress
           ? (a.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
-          : Promise.resolve(a.getDTAddress(n)).then(function (u) {
-              var h = new t(o),
+          : Promise.resolve(a.getDTAddress(r)).then(function (u) {
+              var h = new n(o),
                 f = h.greaterThan
-              return Promise.resolve(a.getOceanMaxBuyQuantity(n)).then(
+              return Promise.resolve(a.getOceanMaxBuyQuantity(r)).then(
                 function (l) {
                   return f.call(h, l)
                     ? (a.logger.error(
                         'ERROR: Buy quantity exceeds quantity allowed'
                       ),
                       null)
-                    : Promise.resolve(a.getOceanReceived(n, i)).then(function (
+                    : Promise.resolve(a.getOceanReceived(r, i)).then(function (
                         h
                       ) {
-                        return new t(h).lessThan(o)
+                        return new n(h).lessThan(o)
                           ? (a.logger.error('ERROR: Not enough datatokens'),
                             null)
                           : Promise.resolve(
-                              e.prototype.approve.call(
+                              t.prototype.approve.call(
                                 a,
-                                r,
+                                e,
                                 u,
-                                n,
+                                r,
                                 a.web3.utils.toWei(i)
                               )
-                            ).then(function (t) {
-                              if (!t)
+                            ).then(function (n) {
+                              if (!n)
                                 throw (
                                   (a.logger.error(
                                     'ERROR: Failed to call approve DT token'
@@ -32208,10 +32208,10 @@ var Mf = /*#__PURE__*/ (function (e) {
                                   ))
                                 )
                               return Promise.resolve(
-                                e.prototype.swapExactAmountIn.call(
+                                t.prototype.swapExactAmountIn.call(
                                   a,
+                                  e,
                                   r,
-                                  n,
                                   u,
                                   i,
                                   a.oceanAddress,
@@ -32228,23 +32228,23 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.addDTLiquidity = function (r, n, i) {
+    (r.addDTLiquidity = function (e, r, i) {
       try {
         var o = this
-        return Promise.resolve(o.getDTAddress(n)).then(function (s) {
-          return Promise.resolve(o.getMaxAddLiquidity(n, s)).then(function (a) {
-            return new t(i).greaterThan(a)
+        return Promise.resolve(o.getDTAddress(r)).then(function (s) {
+          return Promise.resolve(o.getMaxAddLiquidity(r, s)).then(function (a) {
+            return new n(i).greaterThan(a)
               ? (o.logger.error('ERROR: Too much reserve to add'), null)
               : Promise.resolve(
-                  e.prototype.approve.call(o, r, s, n, o.web3.utils.toWei(i))
-                ).then(function (t) {
-                  if (!t)
+                  t.prototype.approve.call(o, e, s, r, o.web3.utils.toWei(i))
+                ).then(function (n) {
+                  if (!n)
                     throw (
                       (o.logger.error('ERROR: Failed to call approve DT token'),
                       new Error('ERROR: Failed to call approve DT token'))
                     )
                   return Promise.resolve(
-                    e.prototype.joinswapExternAmountIn.call(o, r, n, s, i, '0')
+                    t.prototype.joinswapExternAmountIn.call(o, e, r, s, i, '0')
                   )
                 })
           })
@@ -32253,27 +32253,27 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.removeDTLiquidity = function (e, r, n, i) {
+    (r.removeDTLiquidity = function (t, e, r, i) {
       try {
         var o = this
-        return Promise.resolve(o.getDTAddress(r)).then(function (s) {
-          return Promise.resolve(o.getDTMaxRemoveLiquidity(r)).then(function (
+        return Promise.resolve(o.getDTAddress(e)).then(function (s) {
+          return Promise.resolve(o.getDTMaxRemoveLiquidity(e)).then(function (
             a
           ) {
-            return new t(n).greaterThan(a)
+            return new n(r).greaterThan(a)
               ? (o.logger.error('ERROR: Too much reserve to remove'), null)
-              : Promise.resolve(o.sharesBalance(e, r)).then(function (a) {
-                  return new t(a).lessThan(i)
+              : Promise.resolve(o.sharesBalance(t, e)).then(function (a) {
+                  return new n(a).lessThan(i)
                     ? (o.logger.error('ERROR: Not enough poolShares'), null)
                     : Promise.resolve(
-                        o.getPoolSharesRequiredToRemoveDT(r, n)
+                        o.getPoolSharesRequiredToRemoveDT(e, r)
                       ).then(function (a) {
-                        return new t(i).lessThan(a)
+                        return new n(i).lessThan(a)
                           ? (o.logger.error('ERROR: Not enough poolShares'),
                             null)
-                          : (new t(i).lessThan(a) &&
-                              (i = new t(i).mul(0.9999).toString()),
-                            o.exitswapExternAmountOut(e, r, s, n, i))
+                          : (new n(i).lessThan(a) &&
+                              (i = new n(i).mul(0.9999).toString()),
+                            o.exitswapExternAmountOut(t, e, s, r, i))
                       })
                 })
           })
@@ -32282,25 +32282,25 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.addOceanLiquidity = function (r, n, i) {
+    (r.addOceanLiquidity = function (e, r, i) {
       try {
         var o = this
         return null == o.oceanAddress
           ? (o.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
-          : Promise.resolve(o.getOceanMaxAddLiquidity(n)).then(function (s) {
-              return new t(i).greaterThan(s)
+          : Promise.resolve(o.getOceanMaxAddLiquidity(r)).then(function (s) {
+              return new n(i).greaterThan(s)
                 ? (o.logger.error('ERROR: Too much reserve to add'), null)
                 : Promise.resolve(
-                    e.prototype.approve.call(
+                    t.prototype.approve.call(
                       o,
-                      r,
+                      e,
                       o.oceanAddress,
-                      n,
+                      r,
                       o.web3.utils.toWei(i)
                     )
-                  ).then(function (t) {
-                    if (!t)
+                  ).then(function (n) {
+                    if (!n)
                       throw (
                         (o.logger.error(
                           'ERROR: Failed to call approve OCEAN token'
@@ -32308,10 +32308,10 @@ var Mf = /*#__PURE__*/ (function (e) {
                         new Error('ERROR: Failed to call approve OCEAN token'))
                       )
                     return Promise.resolve(
-                      e.prototype.joinswapExternAmountIn.call(
+                      t.prototype.joinswapExternAmountIn.call(
                         o,
+                        e,
                         r,
-                        n,
                         o.oceanAddress,
                         i,
                         '0'
@@ -32323,19 +32323,19 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.removeOceanLiquidityWithMinimum = function (r, n, i, o) {
+    (r.removeOceanLiquidityWithMinimum = function (e, r, i, o) {
       try {
         var s = this
         return null == s.oceanAddress
           ? (s.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
-          : Promise.resolve(s.sharesBalance(r, n)).then(function (a) {
-              return new t(a).lessThan(i)
+          : Promise.resolve(s.sharesBalance(e, r)).then(function (a) {
+              return new n(a).lessThan(i)
                 ? (s.logger.error('ERROR: Not enough poolShares'), null)
-                : e.prototype.exitswapPoolAmountIn.call(
+                : t.prototype.exitswapPoolAmountIn.call(
                     s,
+                    e,
                     r,
-                    n,
                     s.oceanAddress,
                     i,
                     o
@@ -32345,30 +32345,30 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.removeOceanLiquidity = function (r, n, i, o) {
+    (r.removeOceanLiquidity = function (e, r, i, o) {
       try {
         var s = this
         return null == s.oceanAddress
           ? (s.logger.error('ERROR: oceanAddress is not defined'),
             Promise.resolve(null))
-          : Promise.resolve(s.getOceanMaxRemoveLiquidity(n)).then(function (a) {
-              return new t(i).greaterThan(a)
+          : Promise.resolve(s.getOceanMaxRemoveLiquidity(r)).then(function (a) {
+              return new n(i).greaterThan(a)
                 ? (s.logger.error('ERROR: Too much reserve to remove'), null)
-                : Promise.resolve(s.sharesBalance(r, n)).then(function (a) {
-                    return new t(a).lessThan(o)
+                : Promise.resolve(s.sharesBalance(e, r)).then(function (a) {
+                    return new n(a).lessThan(o)
                       ? (s.logger.error('ERROR: Not enough poolShares'), null)
                       : Promise.resolve(
-                          s.getPoolSharesRequiredToRemoveOcean(n, i)
+                          s.getPoolSharesRequiredToRemoveOcean(r, i)
                         ).then(function (a) {
-                          return new t(o).lessThan(a)
+                          return new n(o).lessThan(a)
                             ? (s.logger.error('ERROR: Not enough poolShares'),
                               null)
-                            : (new t(o).lessThan(a) &&
-                                (o = new t(o).mul(0.9999).toString()),
-                              e.prototype.exitswapExternAmountOut.call(
+                            : (new n(o).lessThan(a) &&
+                                (o = new n(o).mul(0.9999).toString()),
+                              t.prototype.exitswapExternAmountOut.call(
                                 s,
+                                e,
                                 r,
-                                n,
                                 s.oceanAddress,
                                 i,
                                 o
@@ -32380,21 +32380,21 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.removePoolLiquidity = function (e, r, n, i, o) {
+    (r.removePoolLiquidity = function (t, e, r, i, o) {
       void 0 === i && (i = '0'), void 0 === o && (o = '0')
       try {
         var s = this
-        return Promise.resolve(s.sharesBalance(e, r)).then(function (a) {
-          return new t(a).lessThan(n)
+        return Promise.resolve(s.sharesBalance(t, e)).then(function (a) {
+          return new n(a).lessThan(r)
             ? (s.logger.error('ERROR: Not enough poolShares'), null)
-            : (new t(a).equals(n) && (n = new t(n).mul(0.9999).toString()),
-              s.exitPool(e, r, n, [i, o]))
+            : (new n(a).equals(r) && (r = new n(r).mul(0.9999).toString()),
+              s.exitPool(t, e, r, [i, o]))
         })
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTPrice = function (t) {
+    (r.getDTPrice = function (t) {
       try {
         var e = this
         return null == e.oceanAddress
@@ -32405,7 +32405,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.searchPoolforDT = function (t) {
+    (r.searchPoolforDT = function (e) {
       try {
         var r = this,
           n = [],
@@ -32425,9 +32425,9 @@ var Mf = /*#__PURE__*/ (function (e) {
           })
           var o = wf(i, function (o) {
             return Promise.resolve(
-              e.prototype.getCurrentTokens.call(r, i[o].returnValues[0])
-            ).then(function (e) {
-              e.includes(t) && n.push(i[o].returnValues[0])
+              t.prototype.getCurrentTokens.call(r, i[o].returnValues[0])
+            ).then(function (t) {
+              t.includes(e) && n.push(i[o].returnValues[0])
             })
           })
           return o && o.then
@@ -32440,23 +32440,23 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getOceanNeeded = function (e, r) {
+    (r.getOceanNeeded = function (t, e) {
       try {
-        var n = this
-        return Promise.resolve(n.getDTAddress(e)).then(function (i) {
-          var o = new t(r),
+        var r = this
+        return Promise.resolve(r.getDTAddress(t)).then(function (i) {
+          var o = new n(e),
             s = o.greaterThan
-          return Promise.resolve(n.getDTMaxBuyQuantity(e)).then(function (t) {
-            return s.call(o, t)
+          return Promise.resolve(r.getDTMaxBuyQuantity(t)).then(function (n) {
+            return s.call(o, n)
               ? '0'
-              : n.calcInGivenOut(e, n.oceanAddress, i, r)
+              : r.calcInGivenOut(t, r.oceanAddress, i, e)
           })
         })
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getOceanReceived = function (t, e) {
+    (r.getOceanReceived = function (t, e) {
       try {
         var r = this
         return Promise.resolve(r.getDTAddress(t)).then(function (n) {
@@ -32466,7 +32466,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTReceived = function (t, e) {
+    (r.getDTReceived = function (t, e) {
       try {
         var r = this
         return Promise.resolve(r.getDTAddress(t)).then(function (n) {
@@ -32476,25 +32476,25 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getDTNeeded = function (e, r) {
+    (r.getDTNeeded = function (t, e) {
       try {
-        var n = this
-        return Promise.resolve(n.getDTAddress(e)).then(function (i) {
-          var o = new t(r),
+        var r = this
+        return Promise.resolve(r.getDTAddress(t)).then(function (i) {
+          var o = new n(e),
             s = o.greaterThan
-          return Promise.resolve(n.getOceanMaxBuyQuantity(e)).then(function (
-            t
+          return Promise.resolve(r.getOceanMaxBuyQuantity(t)).then(function (
+            n
           ) {
-            return s.call(o, t)
+            return s.call(o, n)
               ? '0'
-              : n.calcInGivenOut(e, i, n.oceanAddress, r)
+              : r.calcInGivenOut(t, i, r.oceanAddress, e)
           })
         })
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getPoolsbyCreator = function (t) {
+    (r.getPoolsbyCreator = function (t) {
       try {
         var e = this,
           r = [],
@@ -32535,11 +32535,11 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getResult = function (t, r) {
+    (r.getResult = function (e, r) {
       try {
         var n = this
         return Promise.resolve(
-          e.prototype.sharesBalance.call(n, t, r.returnValues[0])
+          t.prototype.sharesBalance.call(n, e, r.returnValues[0])
         ).then(function (t) {
           return (function () {
             if (parseFloat(t) > 0)
@@ -32559,7 +32559,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getPoolSharesByAddress = function (t) {
+    (r.getPoolSharesByAddress = function (t) {
       try {
         var e = this,
           r = [],
@@ -32607,40 +32607,40 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getPoolDetails = function (t) {
+    (r.getPoolDetails = function (e) {
       try {
-        return Promise.resolve(e.prototype.getFinalTokens.call(this, t)).then(
-          function (e) {
-            return { poolAddress: t, tokens: e }
+        return Promise.resolve(t.prototype.getFinalTokens.call(this, e)).then(
+          function (t) {
+            return { poolAddress: e, tokens: t }
           }
         )
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.getPoolLogs = function (t, r, n) {
+    (r.getPoolLogs = function (e, r, n) {
       void 0 === r && (r = 0)
       try {
         var i = this,
           o = []
-        return Promise.resolve(i.getDTAddress(t)).then(function (s) {
+        return Promise.resolve(i.getDTAddress(e)).then(function (s) {
           0 === r && (r = i.startBlock)
           var a,
-            u = e.prototype.getSwapEventSignature.call(i),
-            h = e.prototype.getJoinEventSignature.call(i),
-            f = e.prototype.getExitEventSignature.call(i)
+            u = t.prototype.getSwapEventSignature.call(i),
+            h = t.prototype.getJoinEventSignature.call(i),
+            f = t.prototype.getExitEventSignature.call(i)
           return (
             (a = n
               ? '0x000000000000000000000000' + n.substring(2).toLowerCase()
               : null),
             Promise.resolve(
               i.web3.eth.getPastLogs({
-                address: t,
+                address: e,
                 topics: [[u, h, f], a],
                 fromBlock: r,
                 toBlock: 'latest'
               })
-            ).then(function (e) {
+            ).then(function (t) {
               function r() {
                 function t() {
                   return o.filter(function (t) {
@@ -32657,8 +32657,8 @@ var Mf = /*#__PURE__*/ (function (e) {
                 return e && e.then ? e.then(t) : t()
               }
               var n = [],
-                a = wf(e, function (r) {
-                  n.push(i.getEventData(t, s, e[r]))
+                a = wf(t, function (r) {
+                  n.push(i.getEventData(e, s, t[r]))
                   var a = (function () {
                     if (n.length > 10)
                       return Promise.resolve(Promise.all(n)).then(function (t) {
@@ -32676,7 +32676,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getAllPoolLogs = function (t) {
+    (r.getAllPoolLogs = function (t) {
       try {
         var e = this,
           r = [],
@@ -32724,15 +32724,15 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.getEventData = function (t, r, n) {
+    (r.getEventData = function (e, r, n) {
       try {
         var i = this
         return Promise.resolve(i.web3.eth.getBlock(n.blockNumber)).then(
           function (o) {
             var s,
-              a = e.prototype.getSwapEventSignature.call(i),
-              u = e.prototype.getJoinEventSignature.call(i),
-              h = e.prototype.getExitEventSignature.call(i)
+              a = t.prototype.getSwapEventSignature.call(i),
+              u = t.prototype.getJoinEventSignature.call(i),
+              h = t.prototype.getExitEventSignature.call(i)
             switch (n.topics[0]) {
               case a:
                 s = 'swap'
@@ -32745,7 +32745,7 @@ var Mf = /*#__PURE__*/ (function (e) {
             }
             var f,
               l = {
-                poolAddress: t,
+                poolAddress: e,
                 dtAddress: r,
                 caller: n.topics[1],
                 transactionHash: n.transactionHash,
@@ -32791,52 +32791,52 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.computeSlippage = function (r, n, i, o, s, a, u, h) {
+    (r.computeSlippage = function (e, r, i, o, s, a, u, h) {
       try {
         var f = this
         return Promise.resolve(
-          e.prototype.calcSpotPrice.call(f, r, n, i, o, s, h)
-        ).then(function (n) {
+          t.prototype.calcSpotPrice.call(f, e, r, i, o, s, h)
+        ).then(function (r) {
           return Promise.resolve(
-            e.prototype.calcSpotPrice.call(f, r, a, i, u, s, h)
-          ).then(function (e) {
-            return new t(e).mul(100).div(n).minus(100).toString()
+            t.prototype.calcSpotPrice.call(f, e, a, i, u, s, h)
+          ).then(function (t) {
+            return new n(t).mul(100).div(r).minus(100).toString()
           })
         })
       } catch (t) {
         return Promise.reject(t)
       }
     }),
-    (n.computeBuySlippage = function (t, r) {
+    (r.computeBuySlippage = function (e, r) {
       try {
         var n = this
-        return Promise.resolve(n.getDTAddress(t)).then(function (i) {
+        return Promise.resolve(n.getDTAddress(e)).then(function (i) {
           return Promise.resolve(
-            e.prototype.getDenormalizedWeight.call(n, t, i)
+            t.prototype.getDenormalizedWeight.call(n, e, i)
           ).then(function (o) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(n, t, n.oceanAddress)
+              t.prototype.getDenormalizedWeight.call(n, e, n.oceanAddress)
             ).then(function (s) {
-              return Promise.resolve(e.prototype.getReserve.call(n, t, i)).then(
+              return Promise.resolve(t.prototype.getReserve.call(n, e, i)).then(
                 function (a) {
                   return Promise.resolve(
-                    e.prototype.getReserve.call(n, t, i)
+                    t.prototype.getReserve.call(n, e, i)
                   ).then(function (i) {
                     return Promise.resolve(
-                      e.prototype.getSwapFee.call(n, t)
+                      t.prototype.getSwapFee.call(n, e)
                     ).then(function (u) {
                       return Promise.resolve(
-                        e.prototype.calcOutGivenIn.call(n, t, i, s, a, o, r, u)
-                      ).then(function (e) {
+                        t.prototype.calcOutGivenIn.call(n, e, i, s, a, o, r, u)
+                      ).then(function (t) {
                         var h = new H(n.web3.utils.toWei(a)).minus(
-                            n.web3.utils.toWei(e)
+                            n.web3.utils.toWei(t)
                           ),
                           f = new H(n.web3.utils.toWei(i)).plus(
                             n.web3.utils.toWei(r)
                           )
                         return Promise.resolve(
                           n.computeSlippage(
-                            t,
+                            e,
                             i,
                             s,
                             a,
@@ -32858,36 +32858,36 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    (n.computeSellSlippage = function (t, r) {
+    (r.computeSellSlippage = function (e, r) {
       try {
         var n = this
-        return Promise.resolve(n.getDTAddress(t)).then(function (i) {
+        return Promise.resolve(n.getDTAddress(e)).then(function (i) {
           return Promise.resolve(
-            e.prototype.getDenormalizedWeight.call(n, t, i)
+            t.prototype.getDenormalizedWeight.call(n, e, i)
           ).then(function (o) {
             return Promise.resolve(
-              e.prototype.getDenormalizedWeight.call(n, t, n.oceanAddress)
+              t.prototype.getDenormalizedWeight.call(n, e, n.oceanAddress)
             ).then(function (s) {
-              return Promise.resolve(e.prototype.getReserve.call(n, t, i)).then(
+              return Promise.resolve(t.prototype.getReserve.call(n, e, i)).then(
                 function (a) {
                   return Promise.resolve(
-                    e.prototype.getReserve.call(n, t, i)
+                    t.prototype.getReserve.call(n, e, i)
                   ).then(function (i) {
                     return Promise.resolve(
-                      e.prototype.getSwapFee.call(n, t)
+                      t.prototype.getSwapFee.call(n, e)
                     ).then(function (u) {
                       return Promise.resolve(
-                        e.prototype.calcOutGivenIn.call(n, t, a, o, i, s, r, u)
-                      ).then(function (e) {
+                        t.prototype.calcOutGivenIn.call(n, e, a, o, i, s, r, u)
+                      ).then(function (t) {
                         var h = new H(n.web3.utils.toWei(a)).plus(
                             n.web3.utils.toWei(r)
                           ),
                           f = new H(n.web3.utils.toWei(i)).minus(
-                            n.web3.utils.toWei(e)
+                            n.web3.utils.toWei(t)
                           )
                         return Promise.resolve(
                           n.computeSlippage(
-                            t,
+                            e,
                             a,
                             o,
                             i,
@@ -32909,7 +32909,7 @@ var Mf = /*#__PURE__*/ (function (e) {
         return Promise.reject(t)
       }
     }),
-    r
+    e
   )
 })(vf)
 function _f(t, e) {
@@ -33018,7 +33018,7 @@ var Ef,
         (this.fixedRateExchangeAddress = r),
         (this.config = s),
         (this.startBlock = (s && s.startBlock) || 0),
-        (this.fixedRateExchangeABI = n || g.abi),
+        (this.fixedRateExchangeABI = n || y.abi),
         (this.oceanAddress = i),
         (this.datatokens = o),
         t &&
@@ -33539,7 +33539,7 @@ function Rf(t, e) {
   })(xf || (xf = {}))
 var If,
   Bf = /*#__PURE__*/ (function () {
-    function e(t, e, r, n, i, o) {
+    function t(t, e, r, n, i, o) {
       void 0 === r && (r = null),
         void 0 === n && (n = null),
         (this.GASLIMIT_DEFAULT = 1e6),
@@ -33555,7 +33555,7 @@ var If,
         (this.config = o),
         (this.dispenserAddress = r),
         (this.startBlock = (o && o.startBlock) || 0),
-        (this.dispenserABI = n || y.abi),
+        (this.dispenserABI = n || b.abi),
         (this.datatokens = i),
         t &&
           (this.contract = Z(
@@ -33567,9 +33567,9 @@ var If,
           )),
         (this.logger = e)
     }
-    var r = e.prototype
+    var e = t.prototype
     return (
-      (r.status = function (t) {
+      (e.status = function (t) {
         try {
           var e,
             r = this,
@@ -33604,7 +33604,7 @@ var If,
           return Promise.reject(t)
         }
       }),
-      (r.activate = function (t, e, r, n) {
+      (e.activate = function (t, e, r, n) {
         try {
           var i,
             o = function () {
@@ -33663,7 +33663,7 @@ var If,
           return Promise.reject(t)
         }
       }),
-      (r.deactivate = function (t, e) {
+      (e.deactivate = function (t, e) {
         try {
           var r,
             n = function () {
@@ -33718,7 +33718,7 @@ var If,
           return Promise.reject(t)
         }
       }),
-      (r.makeMinter = function (t, e) {
+      (e.makeMinter = function (t, e) {
         var r = this
         return new F(function (n) {
           try {
@@ -33782,7 +33782,7 @@ var If,
           }
         })
       }),
-      (r.cancelMinter = function (t, e) {
+      (e.cancelMinter = function (t, e) {
         var r = this
         return new F(function (n) {
           try {
@@ -33842,7 +33842,7 @@ var If,
           }
         })
       }),
-      (r.dispense = function (t, e, r) {
+      (e.dispense = function (t, e, r) {
         void 0 === r && (r = '1')
         try {
           var n,
@@ -33901,7 +33901,7 @@ var If,
           return Promise.reject(t)
         }
       }),
-      (r.ownerWithdraw = function (t, e) {
+      (e.ownerWithdraw = function (t, e) {
         try {
           var r,
             n = function () {
@@ -33956,19 +33956,19 @@ var If,
           return Promise.reject(t)
         }
       }),
-      (r.isDispensable = function (e, r, n) {
-        void 0 === n && (n = '1')
+      (e.isDispensable = function (t, e, r) {
+        void 0 === r && (r = '1')
         try {
           var i = this
-          return Promise.resolve(i.status(e)).then(function (o) {
+          return Promise.resolve(i.status(t)).then(function (o) {
             return (
               !!o &&
               !1 !== o.active &&
-              Promise.resolve(i.datatokens.balance(e, r)).then(function (e) {
+              Promise.resolve(i.datatokens.balance(t, e)).then(function (t) {
                 return !(
-                  new t(e).greaterThanOrEqualTo(o.maxBalance) ||
-                  new t(String(n)).greaterThan(o.maxTokens) ||
-                  (!new t(o.balance).greaterThanOrEqualTo(n) &&
+                  new n(t).greaterThanOrEqualTo(o.maxBalance) ||
+                  new n(String(r)).greaterThan(o.maxTokens) ||
+                  (!new n(o.balance).greaterThanOrEqualTo(r) &&
                     !0 !== o.isTrueMinter)
                 )
               })
@@ -33978,7 +33978,7 @@ var If,
           return Promise.reject(t)
         }
       }),
-      e
+      t
     )
   })(),
   Of = /*#__PURE__*/ (function (t) {
@@ -34260,13 +34260,13 @@ var If,
   ],
   Lf = /*#__PURE__*/ (function () {
     function t() {}
-    var e = t.prototype
+    var r = t.prototype
     return (
-      (e.getAddressesFromEnv = function (t) {
-        var e
+      (r.getAddressesFromEnv = function (t) {
+        var r
         if (w[t]) {
           var n = w[t]
-          e = S(
+          r = S(
             {
               factoryAddress: n.DTFactory,
               poolFactoryAddress: n.BFactory,
@@ -34282,16 +34282,16 @@ var If,
             }
           )
         }
-        if (r && process.env.ADDRESS_FILE)
+        if (o && process.env.ADDRESS_FILE)
           try {
             var i = JSON.parse(
-              r.readFileSync(
+              o.readFileSync(
                 process.env.ADDRESS_FILE ||
-                  b + '/.ocean/ocean-contracts/artifacts/address.json',
+                  e + '/.ocean/ocean-contracts/artifacts/address.json',
                 'utf8'
               )
             )[t]
-            e = S(
+            r = S(
               {
                 factoryAddress: i.DTFactory,
                 poolFactoryAddress: i.BFactory,
@@ -34307,9 +34307,9 @@ var If,
               }
             )
           } catch (t) {}
-        return e
+        return r
       }),
-      (e.getConfig = function (t, e) {
+      (r.getConfig = function (t, e) {
         var r = 'string' == typeof t ? 'network' : 'networkId',
           n = jf.find(function (e) {
             return e[r] === t
@@ -36449,7 +36449,7 @@ var Kf = /*#__PURE__*/ (function () {
                   (function (t) {
                     try {
                       return Promise.resolve(
-                        o(t, {
+                        u(t, {
                           method: 'GET',
                           headers: { 'Content-type': 'application/json' }
                         })
@@ -36496,16 +36496,16 @@ var Kf = /*#__PURE__*/ (function () {
       }),
       (e.getNonce = function (t, e, r, n, i) {
         try {
-          var s = function () {
-              function s() {
-                var t = a.getEndpointURL(i, 'nonce')
-                  ? a.getEndpointURL(i, 'nonce').urlPath
+          var o = function () {
+              function o() {
+                var t = s.getEndpointURL(i, 'nonce')
+                  ? s.getEndpointURL(i, 'nonce').urlPath
                   : null
                 return t
                   ? Zf(
                       function () {
                         return Promise.resolve(
-                          o(t + '?userAddress=' + e, {
+                          u(t + '?userAddress=' + e, {
                             method: 'GET',
                             headers: { 'Content-Type': 'application/json' },
                             signal: r
@@ -36523,24 +36523,24 @@ var Kf = /*#__PURE__*/ (function () {
                     )
                   : null
               }
-              var u = (function () {
+              var a = (function () {
                 if (!i)
-                  return Promise.resolve(a.getServiceEndpoints(t, n)).then(
+                  return Promise.resolve(s.getServiceEndpoints(t, n)).then(
                     function (t) {
                       i = t
                     }
                   )
               })()
-              return u && u.then ? u.then(s) : s()
+              return a && a.then ? a.then(o) : o()
             },
-            a = this,
-            u = (function () {
+            s = this,
+            a = (function () {
               if (!n)
-                return Promise.resolve(a.getEndpoints(t)).then(function (t) {
+                return Promise.resolve(s.getEndpoints(t)).then(function (t) {
                   n = t
                 })
             })()
-          return Promise.resolve(u && u.then ? u.then(s) : s())
+          return Promise.resolve(a && a.then ? a.then(o) : o())
         } catch (t) {
           return Promise.reject(t)
         }
@@ -36642,7 +36642,7 @@ var Kf = /*#__PURE__*/ (function () {
                 ? Zf(
                     function () {
                       return Promise.resolve(
-                        o(i, {
+                        u(i, {
                           method: 'POST',
                           body: decodeURI(JSON.stringify(t)),
                           headers: {
@@ -36668,30 +36668,30 @@ var Kf = /*#__PURE__*/ (function () {
       (e.checkDidFiles = function (t, e, r, n) {
         try {
           var i = this
-          return Promise.resolve(i.getEndpoints(r)).then(function (s) {
-            return Promise.resolve(i.getServiceEndpoints(r, s)).then(function (
+          return Promise.resolve(i.getEndpoints(r)).then(function (o) {
+            return Promise.resolve(i.getServiceEndpoints(r, o)).then(function (
               r
             ) {
-              var s = { did: t, serviceId: e },
-                a = [],
-                u = i.getEndpointURL(r, 'fileinfo')
+              var o = { did: t, serviceId: e },
+                s = [],
+                a = i.getEndpointURL(r, 'fileinfo')
                   ? i.getEndpointURL(r, 'fileinfo').urlPath
                   : null
-              return u
+              return a
                 ? Zf(
                     function () {
                       return Promise.resolve(
-                        o(u, {
+                        u(a, {
                           method: 'POST',
-                          body: JSON.stringify(s),
+                          body: JSON.stringify(o),
                           headers: { 'Content-Type': 'application/json' },
                           signal: n
                         })
                       ).then(function (t) {
                         return Promise.resolve(t.json()).then(function (t) {
                           for (var e, r = k(t); !(e = r()).done; )
-                            a.push(e.value)
-                          return a
+                            s.push(e.value)
+                          return s
                         })
                       })
                     },
@@ -36714,15 +36714,15 @@ var Kf = /*#__PURE__*/ (function () {
               e
             ) {
               var i = { url: t, type: 'url' },
-                s = [],
-                a = n.getEndpointURL(e, 'fileinfo')
+                o = [],
+                s = n.getEndpointURL(e, 'fileinfo')
                   ? n.getEndpointURL(e, 'fileinfo').urlPath
                   : null
-              return a
+              return s
                 ? Zf(
                     function () {
                       return Promise.resolve(
-                        o(a, {
+                        u(s, {
                           method: 'POST',
                           body: JSON.stringify(i),
                           headers: { 'Content-Type': 'application/json' },
@@ -36731,8 +36731,8 @@ var Kf = /*#__PURE__*/ (function () {
                       ).then(function (t) {
                         return Promise.resolve(t.json()).then(function (t) {
                           for (var e, r = k(t); !(e = r()).done; )
-                            s.push(e.value)
-                          return s
+                            o.push(e.value)
+                          return o
                         })
                       })
                     },
@@ -36763,7 +36763,7 @@ var Kf = /*#__PURE__*/ (function () {
                 ? Zf(
                     function () {
                       return Promise.resolve(
-                        o(i, {
+                        u(i, {
                           method: 'GET',
                           headers: { 'Content-Type': 'application/json' },
                           signal: e
@@ -36783,7 +36783,7 @@ var Kf = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (e.initialize = function (t, e, r, n, i, s, a, u, h) {
+      (e.initialize = function (t, e, r, n, i, o, s, a, h) {
         try {
           var f = this
           return Promise.resolve(f.getEndpoints(i)).then(function (l) {
@@ -36798,16 +36798,16 @@ var Kf = /*#__PURE__*/ (function () {
                   (l += '&serviceId=' + e),
                   (l += '&fileIndex=' + r),
                   (l += '&consumerAddress=' + n),
-                  a && (l += '&userdata=' + encodeURI(JSON.stringify(a))),
-                  u && (l += '&environment=' + encodeURI(u)),
+                  s && (l += '&userdata=' + encodeURI(JSON.stringify(s))),
+                  a && (l += '&environment=' + encodeURI(a)),
                   h && (l += '&validUntil=' + h),
                   Zf(
                     function () {
                       return Promise.resolve(
-                        o(l, {
+                        u(l, {
                           method: 'GET',
                           headers: { 'Content-Type': 'application/json' },
-                          signal: s
+                          signal: o
                         })
                       ).then(function (t) {
                         return Promise.resolve(t.json())
@@ -36861,7 +36861,7 @@ var Kf = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (e.computeStart = function (t, e, r, n, i, s, a, u, h) {
+      (e.computeStart = function (t, e, r, n, i, o, s, a, h) {
         try {
           var f = this
           return Promise.resolve(f.getEndpoints(t)).then(function (l) {
@@ -36886,18 +36886,18 @@ var Kf = /*#__PURE__*/ (function () {
                     (e.nonce = c),
                     (e.environment = n),
                     (e.dataset = i),
-                    (e.algorithm = s),
-                    e.additionalDatasets && (e.additionalDatasets = u),
+                    (e.algorithm = o),
+                    e.additionalDatasets && (e.additionalDatasets = a),
                     h && (e.output = h),
                     l
                       ? Zf(
                           function () {
                             return Promise.resolve(
-                              o(l, {
+                              u(l, {
                                 method: 'POST',
                                 body: JSON.stringify(e),
                                 headers: { 'Content-Type': 'application/json' },
-                                signal: a
+                                signal: s
                               })
                             ).then(function (t) {
                               var r
@@ -36942,25 +36942,25 @@ var Kf = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (e.computeStop = function (t, e, r, n, i, s) {
+      (e.computeStop = function (t, e, r, n, i, o) {
         try {
-          var a = this
-          return Promise.resolve(a.getEndpoints(n)).then(function (u) {
-            return Promise.resolve(a.getServiceEndpoints(n, u)).then(function (
+          var s = this
+          return Promise.resolve(s.getEndpoints(n)).then(function (a) {
+            return Promise.resolve(s.getServiceEndpoints(n, a)).then(function (
               h
             ) {
-              var f = a.getEndpointURL(h, 'computeStop')
-                ? a.getEndpointURL(h, 'computeStop').urlPath
+              var f = s.getEndpointURL(h, 'computeStop')
+                ? s.getEndpointURL(h, 'computeStop').urlPath
                 : null
-              return Promise.resolve(a.getNonce(n, e, s, u, h)).then(function (
+              return Promise.resolve(s.getNonce(n, e, o, a, h)).then(function (
                 n
               ) {
-                var u = e
+                var a = e
                 return (
-                  (u += r || ''),
-                  (u += (t && '' + Gf(t)) || ''),
-                  (u += n),
-                  Promise.resolve(a.createHashSignature(i, e, u)).then(
+                  (a += r || ''),
+                  (a += (t && '' + Gf(t)) || ''),
+                  (a += n),
+                  Promise.resolve(s.createHashSignature(i, e, a)).then(
                     function (n) {
                       var i = Object()
                       return (
@@ -36972,13 +36972,13 @@ var Kf = /*#__PURE__*/ (function () {
                           ? Zf(
                               function () {
                                 return Promise.resolve(
-                                  o(f, {
+                                  u(f, {
                                     method: 'PUT',
                                     body: JSON.stringify(i),
                                     headers: {
                                       'Content-Type': 'application/json'
                                     },
-                                    signal: s
+                                    signal: o
                                   })
                                 ).then(function (t) {
                                   var e
@@ -37027,27 +37027,27 @@ var Kf = /*#__PURE__*/ (function () {
       }),
       (e.computeStatus = function (t, e, r, n, i) {
         try {
-          var s = this
+          var o = this
           if (!r && !n && !i)
             throw new Error(
               'You need at least one of jobId, did, consumerAddress'
             )
-          return Promise.resolve(s.getEndpoints(t)).then(function (a) {
-            return Promise.resolve(s.getServiceEndpoints(t, a)).then(function (
+          return Promise.resolve(o.getEndpoints(t)).then(function (s) {
+            return Promise.resolve(o.getServiceEndpoints(t, s)).then(function (
               t
             ) {
-              var a = s.getEndpointURL(t, 'computeStatus')
-                  ? s.getEndpointURL(t, 'computeStatus').urlPath
+              var s = o.getEndpointURL(t, 'computeStatus')
+                  ? o.getEndpointURL(t, 'computeStatus').urlPath
                   : null,
-                u = '?documentId=' + Gf(n)
+                a = '?documentId=' + Gf(n)
               return (
-                (u += (i && '&consumerAddress=' + i) || ''),
-                (u += (r && '&jobId=' + r) || ''),
-                a
+                (a += (i && '&consumerAddress=' + i) || ''),
+                (a += (r && '&jobId=' + r) || ''),
+                s
                   ? Zf(
                       function () {
                         return Promise.resolve(
-                          o(a + u, {
+                          u(s + a, {
                             method: 'GET',
                             headers: { 'Content-Type': 'application/json' },
                             signal: e
@@ -37091,25 +37091,25 @@ var Kf = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (e.computeResult = function (t, e, r, n, i, s) {
+      (e.computeResult = function (t, e, r, n, i, o) {
         try {
-          var a = this
-          return Promise.resolve(a.getEndpoints(n)).then(function (u) {
-            return Promise.resolve(a.getServiceEndpoints(n, u)).then(function (
+          var s = this
+          return Promise.resolve(s.getEndpoints(n)).then(function (a) {
+            return Promise.resolve(s.getServiceEndpoints(n, a)).then(function (
               h
             ) {
-              var f = a.getEndpointURL(h, 'computeResult')
-                ? a.getEndpointURL(h, 'computeResult').urlPath
+              var f = s.getEndpointURL(h, 'computeResult')
+                ? s.getEndpointURL(h, 'computeResult').urlPath
                 : null
-              return Promise.resolve(a.getNonce(n, r, s, u, h)).then(function (
+              return Promise.resolve(s.getNonce(n, r, o, a, h)).then(function (
                 n
               ) {
-                var s = r
+                var o = r
                 return (
-                  (s += t),
-                  (s += String(e)),
-                  (s += n),
-                  Promise.resolve(a.createHashSignature(i, r, s)).then(
+                  (o += t),
+                  (o += String(e)),
+                  (o += n),
+                  Promise.resolve(s.createHashSignature(i, r, o)).then(
                     function (n) {
                       var i = f
                       return (
@@ -37139,7 +37139,7 @@ var Kf = /*#__PURE__*/ (function () {
                                   : Promise.resolve(
                                       (function (t, e) {
                                         try {
-                                          return Promise.resolve(o(t)).then(
+                                          return Promise.resolve(u(t)).then(
                                             function (r) {
                                               if (!r.ok)
                                                 throw new Error(
@@ -37192,25 +37192,25 @@ var Kf = /*#__PURE__*/ (function () {
           return Promise.reject(t)
         }
       }),
-      (e.computeDelete = function (t, e, r, n, i, s) {
+      (e.computeDelete = function (t, e, r, n, i, o) {
         try {
-          var a = this
-          return Promise.resolve(a.getEndpoints(n)).then(function (u) {
-            return Promise.resolve(a.getServiceEndpoints(n, u)).then(function (
+          var s = this
+          return Promise.resolve(s.getEndpoints(n)).then(function (a) {
+            return Promise.resolve(s.getServiceEndpoints(n, a)).then(function (
               h
             ) {
-              var f = a.getEndpointURL(h, 'computeDelete')
-                ? a.getEndpointURL(h, 'computeDelete').urlPath
+              var f = s.getEndpointURL(h, 'computeDelete')
+                ? s.getEndpointURL(h, 'computeDelete').urlPath
                 : null
-              return Promise.resolve(a.getNonce(n, e, s, u, h)).then(function (
+              return Promise.resolve(s.getNonce(n, e, o, a, h)).then(function (
                 n
               ) {
-                var u = e
+                var a = e
                 return (
-                  (u += r || ''),
-                  (u += (t && '' + Gf(t)) || ''),
-                  (u += n),
-                  Promise.resolve(a.createHashSignature(i, e, u)).then(
+                  (a += r || ''),
+                  (a += (t && '' + Gf(t)) || ''),
+                  (a += n),
+                  Promise.resolve(s.createHashSignature(i, e, a)).then(
                     function (n) {
                       var i = Object()
                       return (
@@ -37222,13 +37222,13 @@ var Kf = /*#__PURE__*/ (function () {
                           ? Zf(
                               function () {
                                 return Promise.resolve(
-                                  o(f, {
+                                  u(f, {
                                     method: 'DELETE',
                                     body: JSON.stringify(i),
                                     headers: {
                                       'Content-Type': 'application/json'
                                     },
-                                    signal: s
+                                    signal: o
                                   })
                                 ).then(function (t) {
                                   var e
@@ -37281,7 +37281,7 @@ var Kf = /*#__PURE__*/ (function () {
             Zf(
               function () {
                 return Promise.resolve(
-                  o(t, {
+                  u(t, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' },
                     signal: e
@@ -37334,7 +37334,7 @@ var $f = /*#__PURE__*/ (function () {
   return (
     (e.generateDidv4 = function (t) {
       try {
-        var e = p(t + (1).toString(10))
+        var e = m(t + (1).toString(10))
         return Promise.resolve('did:op:' + e.toString())
       } catch (t) {
         return Promise.reject(t)
