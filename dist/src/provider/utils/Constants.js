@@ -1,0 +1,3 @@
+export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
+export const GASLIMIT_DEFAULT = 1000000
+//# sourceMappingURL=Constants.js.map
